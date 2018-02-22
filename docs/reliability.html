@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NIST/SEMATECH e-Handbook of Statistical Methods</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="NIST/SEMATECH e-Handbook of Statistical Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="NIST/SEMATECH e-Handbook of Statistical Methods" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="NIST">
+
+
+<meta name="date" content="2018-02-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="compare.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivation</a></li>
+<li class="chapter" data-level="1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>1</b> Exploratory Data Analysis</a><ul>
+<li class="chapter" data-level="1.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-introduction"><i class="fa fa-check"></i><b>1.1</b> EDA Introduction</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#what-is-eda"><i class="fa fa-check"></i><b>1.1.1</b> What is EDA?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-versus-classical-and-bayesian"><i class="fa fa-check"></i><b>1.1.2</b> EDA versus Classical and Bayesian</a></li>
+<li class="chapter" data-level="1.1.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-vs.summary"><i class="fa fa-check"></i><b>1.1.3</b> EDA vs. Summary</a></li>
+<li class="chapter" data-level="1.1.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#what-are-the-eda-goals"><i class="fa fa-check"></i><b>1.1.4</b> What are the EDA Goals?</a></li>
+<li class="chapter" data-level="1.1.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#the-role-of-graphics"><i class="fa fa-check"></i><b>1.1.5</b> The Role of Graphics</a></li>
+<li class="chapter" data-level="1.1.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#an-edagraphics-example"><i class="fa fa-check"></i><b>1.1.6</b> An EDA/Graphics Example</a></li>
+<li class="chapter" data-level="1.1.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#general-problem-categories"><i class="fa fa-check"></i><b>1.1.7</b> General Problem Categories</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-assumptions"><i class="fa fa-check"></i><b>1.2</b> EDA Assumptions</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#summary-1"><i class="fa fa-check"></i><b>1.2.1</b> Summary</a></li>
+<li class="chapter" data-level="1.2.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#table-of-contents-for-section-2"><i class="fa fa-check"></i><b>1.2.2</b> Table of Contents for Section 2</a></li>
+<li class="chapter" data-level="1.2.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#underlying-assumptions"><i class="fa fa-check"></i><b>1.2.3</b> Underlying Assumptions</a></li>
+<li class="chapter" data-level="1.2.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#importance"><i class="fa fa-check"></i><b>1.2.4</b> Importance</a></li>
+<li class="chapter" data-level="1.2.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#techniques-for-testing-assumptions"><i class="fa fa-check"></i><b>1.2.5</b> Techniques for Testing Assumptions</a></li>
+<li class="chapter" data-level="1.2.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#interpretation-of-4-plot"><i class="fa fa-check"></i><b>1.2.6</b> Interpretation of 4-Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="measurement-process-characterization.html"><a href="measurement-process-characterization.html"><i class="fa fa-check"></i><b>2</b> Measurement Process Characterization</a><ul>
+<li class="chapter" data-level="2.1" data-path="measurement-process-characterization.html"><a href="measurement-process-characterization.html#characterization"><i class="fa fa-check"></i><b>2.1</b> Characterization</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
+<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="6" data-path="monitor.html"><a href="monitor.html"><i class="fa fa-check"></i><b>6</b> Monitor</a></li>
+<li class="chapter" data-level="7" data-path="compare.html"><a href="compare.html"><i class="fa fa-check"></i><b>7</b> Compare</a></li>
+<li class="chapter" data-level="8" data-path="reliability.html"><a href="reliability.html"><i class="fa fa-check"></i><b>8</b> Reliability</a><ul>
+<li class="chapter" data-level="8.1" data-path="reliability.html"><a href="reliability.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="reliability.html"><a href="reliability.html#why-is-the-assessment-and-control-of-product-reliability-important"><i class="fa fa-check"></i><b>8.1.1</b> Why is the assessment and control of product reliability important?</a></li>
+<li class="chapter" data-level="8.1.2" data-path="reliability.html"><a href="reliability.html#what-are-the-basic-terms-and-models-used-for-reliability-evaluation"><i class="fa fa-check"></i><b>8.1.2</b> What are the basic terms and models used for reliability evaluation?</a></li>
+<li class="chapter" data-level="8.1.3" data-path="reliability.html"><a href="reliability.html#what-are-some-common-difficulties-with-reliability-data-and-how-are-they-overcome"><i class="fa fa-check"></i><b>8.1.3</b> What are some common difficulties with reliability data and how are they overcome?</a></li>
+<li class="chapter" data-level="8.1.4" data-path="reliability.html"><a href="reliability.html#what-is-physical-acceleration-and-how-do-we-model-it"><i class="fa fa-check"></i><b>8.1.4</b> What is “physical acceleration” and how do we model it?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NIST/SEMATECH e-Handbook of Statistical Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reliability" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Reliability</h1>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">8.1</span> Introduction</h2>
+<p>This section introduces the terminology and models that will be used to describe and quantify product reliability. The terminology, probability distributions and models used for reliability analysis differ in many cases from those used in other statistical applications.</p>
+<div id="why-is-the-assessment-and-control-of-product-reliability-important" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Why is the assessment and control of product reliability important?</h3>
+<blockquote>
+<p>We depend on, demand, and expect reliable products</p>
+</blockquote>
+<p>In today’s technological world nearly everyone depends upon the continued functioning of a wide array of complex machinery and equipment for their everyday health, safety, mobility and economic welfare. We expect our cars, computers, electrical appliances, lights, televisions, etc. to function whenever we need them - day after day, year after year. When they fail the results can be catastrophic: injury, loss of life and/or costly lawsuits can occur. More often, repeated failure leads to annoyance, inconvenience and a lasting customer dissatisfaction that can play havoc with the responsible company’s marketplace position.</p>
+<blockquote>
+<p>Shipping unreliable products can destroy a company’s reputation</p>
+</blockquote>
+<p>It takes a long time for a company to build up a reputation for reliability, and only a short time to be branded as “unreliable” after shipping a flawed product. Continual assessment of new product reliability and ongoing control of the reliability of everything shipped are critical necessities in today’s competitive business arena.</p>
+<div id="quality-versus-reliability" class="section level4">
+<h4><span class="header-section-number">8.1.1.1</span> Quality versus reliability</h4>
+<blockquote>
+<p>Reliability is “quality changing over time”</p>
+</blockquote>
+<p>The everyday usage term “quality of a product” is loosely taken to mean its inherent degree of excellence. In industry, this is made more precise by defining quality to be “conformance to requirements at the start of use”. Assuming the product specifications adequately capture customer requirements, the quality level can now be precisely measured by the fraction of units shipped that meet specifications.</p>
+<blockquote>
+<p>A motion picture instead of a snapshot</p>
+</blockquote>
+<p>But how many of these units still meet specifications after a week of operation? Or after a month, or at the end of a one year warranty period? That is where “reliability” comes in. Quality is a snapshot at the start of life and reliability is a motion picture of the day-by-day operation. Time zero defects are manufacturing mistakes that escaped final test. The additional defects that appear over time are “reliability defects” or reliability fallout.</p>
+<blockquote>
+<p>Life distributions model fraction fallout over time</p>
+</blockquote>
+<p>The quality level might be described by a single fraction defective. To describe reliability fallout a probability model that describes the fraction fallout over time is needed. This is known as the life distribution model.</p>
+</div>
+<div id="competitive-driving-factors" class="section level4">
+<h4><span class="header-section-number">8.1.1.2</span> Competitive driving factors</h4>
+<blockquote>
+<p>Reliability is a major economic factor in determining a product’s success</p>
+</blockquote>
+<p>Accurate prediction and control of reliability plays an important role in the profitability of a product. Service costs for products within the warranty period or under a service contract are a major expense and a significant pricing factor. Proper spare part stocking and support personnel hiring and training also depend upon good reliability fallout predictions. On the other hand, missing reliability targets may invoke contractual penalties and cost future business. Companies that can economically design and market products that meet their customers’ reliability expectations have a strong competitive advantage in today’s marketplace.</p>
+</div>
+<div id="safety-and-health-considerations" class="section level4">
+<h4><span class="header-section-number">8.1.1.3</span> Safety and health considerations</h4>
+<blockquote>
+<p>Some failures have serious social consequences and this should be taken into account when planning reliability studies</p>
+</blockquote>
+<p>Sometimes equipment failure can have a major impact on human safety and/or health. Automobiles, planes, life support equipment, and power generating plants are a few examples. From the point of view of “assessing product reliability”, we treat these kinds of catastrophic failures no differently from the failure that occurs when a key parameter measured on a manufacturing tool drifts slightly out of specification, calling for an unscheduled maintenance action.</p>
+<p>It is up to the reliability engineer (and the relevant customer) to define what constitutes a failure in any reliability study. More resource (test time and test units) should be planned for when an incorrect reliability assessment could negatively impact safety and/or health.</p>
+</div>
+</div>
+<div id="what-are-the-basic-terms-and-models-used-for-reliability-evaluation" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> What are the basic terms and models used for reliability evaluation?</h3>
+<blockquote>
+<p>Reliability methods and terminology began with 19th century insurance companies</p>
+</blockquote>
+<p>Reliability theory developed apart from the mainstream of probability and statistics, and was used primarily as a tool to help nineteenth century maritime and life insurance companies compute profitable rates to charge their customers. Even today, the terms “failure rate” and “hazard rate” are often used interchangeably. The following sections will define some of the concepts, terms, and models we need to describe, estimate and predict reliability.</p>
+<div id="repairable-systems-non-repairable-populations-and-lifetime-distribution-models" class="section level4">
+<h4><span class="header-section-number">8.1.2.1</span> Repairable systems, non-repairable populations and lifetime distribution models</h4>
+<blockquote>
+<p>Life distribution models describe how non-repairable populations fail over time</p>
+</blockquote>
+<p>A repairable system is one which can be restored to satisfactory operation by any action, including parts replacements or changes to adjustable settings. When discussing the rate at which failures occur during system operation time (and are then repaired) we will define a Rate of Occurrence of Failure (ROCF) or “repair rate”. It would be incorrect to talk about failure rates or hazard rates for repairable systems, as these terms apply only to the first failure times for a population of non repairable components. A non-repairable population is one for which individual items that fail are removed permanently from the population. While the system may be repaired by replacing failed units from either a similar or a different population, the members of the original population dwindle over time until all have eventually failed.</p>
+<p>We begin with models and definitions for non-repairable populations. Repair rates for repairable populations will be defined in a later section.</p>
+<p>The theoretical population models used to describe unit lifetimes are known as <strong>Lifetime Distribution Models</strong>. The population is generally considered to be all of the possible unit lifetimes for all of the units that could be manufactured based on a particular design and choice of materials and manufacturing process. A random sample of size <em>n</em> from this population is the collection of failure times observed for a randomly selected group of <em>n</em> units.</p>
+<blockquote>
+<p>Any continuous PDF defined only for non-negative values can be a lifetime distribution model</p>
+</blockquote>
+<p>A lifetime distribution model can be any probability density function (or PDF) f(t) defined over the range of time from t=0,…,∞. The corresponding cumulative distribution function (or CDF) F(t) is a very useful function, as it gives the probability that a randomly selected unit will fail by time t. The figure below shows the relationship between f(t) and F(t) and gives three descriptions of F(t).</p>
+<div class="figure">
+<img src="http://www.itl.nist.gov/div898/handbook/apr/section1/gifs/f81212.gif" alt="PDF" />
+<p class="caption">PDF</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>F(t) = the area under the PDF f(t) to the left of t.</li>
+<li>F(t) = the probability that a single randomly chosen new unit will fail by time t.</li>
+<li>F(t) = the proportion of the entire population that fails by time t.</li>
+</ol>
+<p>The figure above also shows a shaded area under <span class="math inline">\(f(t)\)</span> between the two times <span class="math inline">\(t_1\)</span> and <span class="math inline">\(t_2\)</span>. This area is <span class="math inline">\([F(t2)−F(t1)]\)</span> and represents the proportion of the population that fails between times <span class="math inline">\(t_1\)</span> and <span class="math inline">\(t_2\)</span> (or the probability that a brand new randomly chosen unit will survive to time <span class="math inline">\(t_1\)</span> but fail before time <span class="math inline">\(t_2\)</span>). Note that the PDF <span class="math inline">\(f(t)\)</span> has only non-negative values and eventually either becomes 0 as t increases, or decreases towards 0. The CDF <span class="math inline">\(F(t)\)</span> is monotonically increasing and goes from 0 to 1 as t approaches infinity. In other words, the total area under the curve is always 1.</p>
+<blockquote>
+<p>The Weibull model is a good example of a life distribution</p>
+</blockquote>
+<p>The 2-parameter Weibull distribution is an example of a popular <span class="math inline">\(F(t)\)</span>. It has the CDF and PDF equations given by: <span class="math display">\[F(t)= 1-e^{-(t/\alpha)^\gamma}\]</span> <span class="math display">\[f(t)=\frac{\gamma}{t} \left(\frac{t}{\alpha} \right)^\gamma e^{-(t/\alpha)^\gamma}\]</span> where <span class="math inline">\(\gamma\)</span> is the “shape” parameter and <span class="math inline">\(\alpha\)</span> is a “scale” parameter called the characteristic life. Example: A company produces automotive fuel pumps that fail according to a Weibull life distribution model with shape parameter <span class="math inline">\(\gamma=1.5\)</span> and scale parameter 8,000 (time measured in use hours). If a typical pump is used 800 hours a year, what proportion are likely to fail within 5 years?</p>
+<p>Solution: The probability associated with the 800*5 quantile of a Weibull distribution with <span class="math inline">\(\gamma=1.5\)</span> and <span class="math inline">\(\alpha=8000\)</span> is 0.2978115. Thus about 30% of the pumps will fail in the first 5 years.</p>
+<p>Functions for computing PDF values and CDF values, are available in both Dataplot code and R code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>((<span class="kw">paste</span>(<span class="st">&quot;The probability associated with the 800*5 quantile of a Weibull distribution with gamma=1.5 and alpha=8000 is&quot;</span>, <span class="kw">as.character</span>(<span class="kw">pweibull</span>(<span class="dv">800</span><span class="op">*</span><span class="dv">5</span>, <span class="fl">1.5</span>, <span class="dv">8000</span>)))))</code></pre></div>
+<pre><code>## [1] &quot;The probability associated with the 800*5 quantile of a Weibull distribution with gamma=1.5 and alpha=8000 is 0.29781149867344&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Thus about&quot;</span>, <span class="kw">paste0</span>(<span class="kw">as.character</span>(<span class="kw">round</span>(<span class="kw">pweibull</span>(<span class="dv">800</span><span class="op">*</span><span class="dv">5</span>, <span class="fl">1.5</span>, <span class="dv">8000</span>)<span class="op">*</span><span class="dv">100</span>, <span class="dt">digits =</span> <span class="dv">0</span>)), <span class="st">&quot;%&quot;</span>),  <span class="st">&quot;of the pumps will fail in the first 5 years.&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;Thus about 30% of the pumps will fail in the first 5 years.&quot;</code></pre>
+</div>
+<div id="reliability-or-survival-function" class="section level4">
+<h4><span class="header-section-number">8.1.2.2</span> Reliability or survival function</h4>
+<blockquote>
+<p>Survival is the complementary event to failure</p>
+</blockquote>
+<p>The Reliability Function <span class="math inline">\(R(t)\)</span>, also known as the Survival Function <span class="math inline">\(S(t)\)</span>, is defined by R(t)=S(t)=the probability a unit survives beyond time t. Since a unit either fails, or survives, and one of these two mutually exclusive alternatives must occur, we have <span class="math display">\[R(t)=1−F(t)\]</span> <span class="math display">\[F(t)=1−R(t)\]</span>.</p>
+<blockquote>
+<p>The reliability of the system is the product of the reliability functions of the components</p>
+</blockquote>
+<p>Calculations using R(t) often occur when building up from single components to subsystems with many components. For example, if one microprocessor comes from a population with reliability function <span class="math inline">\(R_{m}(t)\)</span> and two of them are used for the CPU in a system, then the system CPU has a reliability function given by <span class="math display">\[R_{cpu}(t) = R_m^2(t)\]</span> since both must survive in order for the system to survive. This building up to the system from the individual components will be discussed in detail when we look at the “Bottom-Up” method. The general rule is: to calculate the reliability of a system of independent components, multiply the reliability functions of all the components together.</p>
+</div>
+<div id="failure-or-hazard-rate" class="section level4">
+<h4><span class="header-section-number">8.1.2.3</span> Failure (or hazard) rate</h4>
+<blockquote>
+<p>The failure rate is the rate at which the population survivors at any given instant are “falling over the cliff”</p>
+</blockquote>
+<p>The failure rate is defined for non repairable populations as the (instantaneous) rate of failure for the survivors to time t during the next instant of time. It is a rate per unit of time similar in meaning to reading a car speedometer at a particular instant and seeing 45 mph. The next instant the failure rate may change and the units that have already failed play no further role since only the survivors count. The failure rate (or hazard rate) is denoted by h(t) and is calculated from <span class="math display">\[h(t) = \frac{f(t)}{1 - F(t)} = \frac{f(t)}{R(t)} = \mbox{the instantaneous (conditional) failure rate.}\]</span> The failure rate is sometimes called a “conditional failure rate” since the denominator <span class="math inline">\(1−F(t)\)</span> (i.e., the population survivors) converts the expression into a conditional rate, given survival past time t. Since <span class="math inline">\(h(t)\)</span> is also equal to the negative of the derivative of <span class="math inline">\(ln[R(t)]\)</span>, we have the useful identity: <span class="math display">\[F(t)=1-\mbox{exp}\left[-\int_0^t h(t)dt\right]\]</span> If we let <span class="math display">\[H(t) = \int_0^t h(t)dt\]</span></p>
+<p>be the Cumulative Hazard Function, we then have <span class="math inline">\(F(t)=1−e^{H(t)}\)</span>. Two other useful identities that follow from these formulas are: <span class="math display">\[h(t) = - \frac{d \mbox{ln} R(t)}{dt}\]</span> <span class="math display">\[H(t) = - \mbox{ln} R(t)\]</span></p>
+<p>It is also sometimes useful to define an average failure rate over any interval (T<sub>1</sub>,T<sub>2</sub>) that “averages” the failure rate over that interval. This rate, denoted by AFR(T<sub>1</sub>,T<sub>2</sub>), is a single number that can be used as a specification or target for the population failure rate over that interval. If T<sub>1</sub> is 0, it is dropped from the expression. Thus, for example, AFR(40,000) would be the average failure rate for the population over the first 40,000 hours of operation.</p>
+<p>The formulas for calculating <em>AFR</em> values are: <span class="math display">\[AFR(T_2 - T_1) = \frac{\int_{T_1}^{T_2} h(t)dt}{T_2 - T_1} = \frac{H(T_2) - H(T_1)}{T_2 - T_1} = \frac{\mbox{ln}R(T_1) - \mbox{ln}R(T_2)}{T_2 - T_1}\]</span></p>
+<p>and <span class="math display">\[AFR(0,T) = AFR(T) = \frac{H(T)}{T} = \frac{-\mbox{ln} R(T)}{T}\]</span></p>
+</div>
+<div id="bathtub-curve" class="section level4">
+<h4><span class="header-section-number">8.1.2.4</span> “Bathtub” curve</h4>
+<blockquote>
+<p>A plot of the failure rate over time for most products yields a curve that looks like a drawing of a bathtub</p>
+</blockquote>
+<p>If enough units from a given population are observed operating and failing over time, it is relatively easy to compute week-by-week (or month-by-month) estimates of the failure rate <span class="math inline">\(h(t)\)</span>. For example, if <span class="math inline">\(N_{12}\)</span> units survive to start the 13th month of life and <span class="math inline">\(r_{13}\)</span> of them fail during the next month (or 720 hours) of life, then a simple empirical estimate of <span class="math inline">\(h(t)\)</span> averaged across the 13th month of life (or between 8640 hours and 9360 hours of age), is given by <span class="math inline">\((\frac{r_{13}} {N_{12}}⋅720)\)</span>. Similar estimates are discussed in detail in the section on Empirical Model Fitting.</p>
+<p>Over many years, and across a wide variety of mechanical and electronic components and systems, people have calculated empirical population failure rates as units age over time and repeatedly obtained a graph such as shown below. Because of the shape of this failure rate curve, it has become widely known as the “Bathtub” curve.</p>
+<p>The initial region that begins at time zero when a customer first begins to use the product is characterized by a high but rapidly decreasing failure rate. This region is known as the <strong>Early Failure Period</strong> (also referred to as <strong>Infant Mortality Period</strong>, from the actuarial origins of the first bathtub curve plots). This decreasing failure rate typically lasts several weeks to a few months.</p>
+<p>Next, the failure rate levels off and remains roughly constant for (hopefully) the majority of the useful life of the product. This long period of a level failure rate is known as the <strong>Intrinsic Failure Period</strong> (also called the <strong>Stable Failure Period</strong>) and the constant failure rate level is called the <strong>Intrinsic Failure Rate</strong>. Note that most systems spend most of their lifetimes operating in this flat portion of the bathtub curve</p>
+<p>Finally, if units from the population remain in use long enough, the failure rate begins to increase as materials wear out and degradation failures occur at an ever increasing rate. This is the <strong>Wearout Failure Period</strong>.</p>
+<div class="figure">
+<img src="http://www.itl.nist.gov/div898/handbook/apr/section1/gifs/bathtub2.gif" alt="Bathtub Curve" />
+<p class="caption">Bathtub Curve</p>
+</div>
+<p>NOTE: The Bathtub Curve also applies (based on much empirical evidence) to Repairable Systems. In this case, the vertical axis is the Repair Rate or the Rate of Occurrence of Failures (ROCOF).</p>
+</div>
+<div id="repair-rate-or-rocof" class="section level4">
+<h4><span class="header-section-number">8.1.2.5</span> Repair rate or ROCOF</h4>
+<blockquote>
+<p>Repair Rate models are based on counting the cumulative number of failures over time</p>
+</blockquote>
+<p>A different approach is used for modeling the rate of occurrence of failure incidences for a repairable system. In this chapter, these rates are called repair rates (not to be confused with the length of time for a repair, which is not discussed in this chapter). Time is measured by system power-on-hours from initial turn-on at time zero, to the end of system life. Failures occur as given system ages and the system is repaired to a state that may be the same as new, or better, or worse. The frequency of repairs may be increasing, decreasing, or staying at a roughly constant rate. Let <em>N(t)</em> be a counting function that keeps track of the cumulative number of failures a given system has had from time zero to time t. <em>N(t)</em> is a step function that jumps up one every time a failure occurs and stays at the new level until the next failure.</p>
+<p>Every system will have its own observed <em>N(t)</em> function over time. If we observed the <em>N(t)</em> curves for a large number of similar systems and “averaged” these curves, we would have an estimate of <span class="math inline">\(M(t) = \mbox{the expected number (average number) of cumulative failures by time t for these systems}\)</span>.</p>
+<blockquote>
+<blockquote>
+<p><strong>The Repair Rate</strong> (or <strong>ROCOF</strong>) is the mean rate of failures per unit time</p>
+</blockquote>
+</blockquote>
+<p>The derivative of <em>M(t)</em>, denoted <em>m(t)</em>, is defined to be the Repair Rate or the <strong>Rate Of Occurrence Of Failures at Time t</strong>, or <strong>ROCOF</strong>. Models for <em>N(t)</em>, <em>M(t)</em>, and <em>m(t)</em> will be described in the section on Repair Rate Models[insert ].</p>
+</div>
+</div>
+<div id="what-are-some-common-difficulties-with-reliability-data-and-how-are-they-overcome" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> What are some common difficulties with reliability data and how are they overcome?</h3>
+<blockquote>
+<p>The Paradox of Reliability Analysis: The more reliable a product is, the harder it is to get the failure data needed to “prove” it is reliable!</p>
+</blockquote>
+<p>There are two closely related problems that are typical with reliability data and not common with most other forms of statistical data. These are:</p>
+<ul>
+<li><a href="insert">Censoring</a>(when the observation period ends, not all units have failed - some are survivors)</li>
+<li><a href="insert">Lack of Failures</a> (if there is too much censoring, even though a large number of units may be under observation, the information in the data is limited due to the lack of actual failures)</li>
+</ul>
+<p>These problems cause considerable practical difficulty when planning reliability assessment tests and analyzing failure data. Some solutions are discussed in the next two sections. Typically, the solutions involve making additional assumptions and using complicated models.</p>
+<div id="censoring" class="section level4">
+<h4><span class="header-section-number">8.1.3.1</span> Censoring</h4>
+<blockquote>
+<p>When not all units on test fail we have censored data</p>
+</blockquote>
+<p>Consider a situation in which we are reliability testing n (non-repairable) units taken randomly from a population. We are investigating the population to determine if its failure rate is acceptable. In the typical test scenario, we have a fixed time T to run the units to see if they survive or fail. The data obtained are called <strong>Censored Type I data</strong>.</p>
+<div id="censored-type-i-data" class="section level5">
+<h5><span class="header-section-number">8.1.3.1.1</span> Censored Type I Data</h5>
+<p>During the T hours of test we observe r failures (where r can be any number from 0 to n). The (exact) failure times are <em>t<sub>1</sub>,t<sub>2</sub>,…,t<sub>r</sub></em>, and there are <em>(n−r)</em> units that survived the entire <em>T-hour</em> test without failing. Note that <em>T</em> is fixed in advance and r is random, since we don’t know how many failures will occur until the test is run. Note also that we assume the exact times of failure are recorded when there are failures.</p>
+<p>This type of censoring is also called “right censored” data since the times of failure to the right (i.e., larger than <em>T</em>) are missing.</p>
+<p>Another (much less common) way to test is to decide in advance that you want to see exactly r failure times and then test until they occur. For example, you might put 100 units on test and decide you want to see at least half of them fail. Then r=50, but T is unknown until the 50th failure occurs. This is called <strong>Censored Type II data.</strong></p>
+</div>
+<div id="censored-type-ii-data" class="section level5">
+<h5><span class="header-section-number">8.1.3.1.2</span> Censored Type II Data</h5>
+<p>We observe <em>t<sub>1</sub>,t<sub>2</sub>,…,t<sub>r</sub></em>, where <em>r</em> is specified in advance. The test ends at time <em>T=t<sub>r</sub></em>, and <em>(n−r)</em> units have survived. Again we assume it is possible to observe the exact time of failure for failed units.</p>
+<p>Type II censoring has the significant advantage that you know in advance how many failure times your test will yield - this helps enormously when planning adequate tests. However, an open-ended random test time is generally impractical from a management point of view and this type of testing is rarely seen.</p>
+<blockquote>
+<p>Sometimes we don’t even know the exact time of failure</p>
+</blockquote>
+</div>
+<div id="readout-or-interval-data" class="section level5">
+<h5><span class="header-section-number">8.1.3.1.3</span> Readout or Interval Data</h5>
+<p>Sometimes exact times of failure are not known; only an interval of time in which the failure occurred is recorded. This kind of data is called Readout or Interval data and the situation is shown in the figure below:</p>
+<div class="figure">
+<img src="http://www.itl.nist.gov/div898/handbook/apr/section1/gifs/multi.gif" alt="Interval Data" />
+<p class="caption">Interval Data</p>
+</div>
+</div>
+<div id="multicensored-data" class="section level5">
+<h5><span class="header-section-number">8.1.3.1.4</span> Multicensored Data</h5>
+<p>In the most general case, every unit observed yields exactly one of the following three types of information:</p>
+<ul>
+<li>a run-time if the unit did not fail while under observation</li>
+<li>an exact failure time</li>
+<li>an interval of time during which the unit failed.</li>
+</ul>
+<p>The units may all have different run-times and/or readout intervals.</p>
+<blockquote>
+<p>Many special methods have been developed to handle censored data</p>
+</blockquote>
+</div>
+<div id="how-do-we-handle-censored-data" class="section level5">
+<h5><span class="header-section-number">8.1.3.1.5</span> How do we handle censored data?</h5>
+<p>Many statistical methods can be used to fit models and estimate failure rates, even with censored data. In later sections we will discuss the Kaplan-Meier approach, Probability Plotting, Hazard Plotting, Graphical Estimation, and Maximum Likelihood Estimation.</p>
+</div>
+<div id="separating-out-failure-modes" class="section level5">
+<h5><span class="header-section-number">8.1.3.1.6</span> Separating out Failure Modes</h5>
+<p>Note that when a data set consists of failure times that can be sorted into several different failure modes, it is possible (and often necessary) to analyze and model each mode separately. Consider all failures due to modes other than the one being analyzed as censoring times, with the censored run-time equal to the time it failed due to the different (independent) failure mode. This is discussed further in the competing risk section and later analysis sections.</p>
+</div>
+</div>
+<div id="lack-of-failures" class="section level4">
+<h4><span class="header-section-number">8.1.3.2</span> Lack of failures</h4>
+<blockquote>
+<p>Failure data is needed to accurately assess and improve reliability - this poses problems when testing highly reliable parts</p>
+</blockquote>
+<p>When fitting models and estimating failure rates from reliability data, the precision of the estimates (as measured by the width of the confidence intervals) tends to vary inversely with the square root of the number of failures observed - not the number of units on test or the length of the test. In other words, a test where 5 fail out of a total of 10 on test gives more information than a test with 1000 units but only 2 failures.</p>
+<p>Since the number of failures r is critical, and not the sample size n on test, it becomes increasingly difficult to assess the failure rates of highly reliable components. Parts like memory chips, that in typical use have failure rates measured in parts per million per thousand hours, will have few or no failures when tested for reasonable time periods with affordable sample sizes. This gives little or no information for accomplishing the two primary purposes of reliability testing, namely:</p>
+<ul>
+<li>accurately assessing population failure rates</li>
+<li>obtaining failure mode information to feedback for product improvement.</li>
+</ul>
+<blockquote>
+<p>Testing at much higher than typical stresses can yield failures but models are then needed to relate these back to use stress</p>
+</blockquote>
+<p><strong>How can tests be designed to overcome an expected lack of failures?</strong> The answer is to make failures occur by testing at much higher stresses than the units would normally see in their intended application. This creates a new problem: how can these failures at higher-than-normal stresses be related to what would be expected to happen over the course of many years at normal use stresses? The models that relate high stress reliability to normal use reliability are called <a href="link">acceleration models</a>.</p>
+</div>
+</div>
+<div id="what-is-physical-acceleration-and-how-do-we-model-it" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> What is “physical acceleration” and how do we model it?</h3>
+<blockquote>
+<p>When changing stress is equivalent to multiplying time to fail by a constant, we have true (physical) acceleration</p>
+</blockquote>
+<p><strong>Physical Acceleration</strong> (sometimes called <strong>True Acceleration</strong> or just <strong>Acceleration</strong>) means that operating a unit at high stress (i.e., higher temperature or voltage or humidity or duty cycle, etc.) produces the same failures that would occur at typical-use stresses, except that they happen much quicker.</p>
+<p>Failure may be due to mechanical fatigue, corrosion, chemical reaction, diffusion, migration, etc. These are the same causes of failure under normal stress; the time scale is simply different.</p>
+<blockquote>
+<p>An Acceleration Factor is the constant multiplier between the two stress levels</p>
+</blockquote>
+<p>When there is true acceleration, changing stress is equivalent to transforming the time scale used to record when failures occur. The transformations commonly used are linear, which means that time-to-fail at high stress just has to be multiplied by a constant (the <strong>acceleration factor</strong>) to obtain the equivalent time-to-fail at use stress. We use the following notation: t<sub>s</sub> = time-to-fail at stress<br />
+t<sub>u</sub> = corresponding time-to-fail at use F<sub>s</sub>(t) = CDF at stress F<sub>u</sub>(t) = CDF at use f<sub>s</sub>(t) = PDF at stress f<sub>u</sub>(t) = PDF at use h<sub>s</sub>(t) = failure rate at stress<br />
+h<sub>u</sub>(t) = failure rate at use</p>
+<p>Then, an acceleration factor AF between stress and use means the following relationships hold:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Linear Acceleration Relationships</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Time-to-Fail</td>
+<td><span class="math inline">\(t_u~=AF\times t_s\)</span></td>
+</tr>
+<tr class="even">
+<td>Failure Probability</td>
+<td><span class="math inline">\(F_u(t)=F_s(t/AF)\)</span></td>
+</tr>
+<tr class="odd">
+<td>Reliability</td>
+<td><span class="math inline">\(R_u(t)=R_s(t/AF)\)</span></td>
+</tr>
+<tr class="even">
+<td>PDF or Density Function</td>
+<td><span class="math inline">\(f_u(t)=\frac{1}{AF} f_s(\frac{t}{AF})\)</span></td>
+</tr>
+<tr class="odd">
+<td>Failure Rate</td>
+<td><span class="math inline">\(h_u(t)=\frac{1}{AF} h_s(\frac{t}{AF})\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Each failure mode has its own acceleration factor<br/> Failure data should be separated by failure mode when analyzed, if acceleration is relevant<br/> Probability plots of data from different stress cells have the same slope (if there is acceleration)</p>
+</blockquote>
+<p><strong>Note</strong>: Acceleration requires that there be a stress dependent physical process causing change or degradation that leads to failure. In general, different failure modes will be affected differently by stress and have different acceleration factors. Therefore, it is unlikely that a single acceleration factor will apply to more than one failure mechanism. In general, different failure modes will be affected differently by stress and have different acceleration factors. Separate out different types of failure when analyzing failure data. Also, a consequence of the linear acceleration relationships shown above (which follows directly from “true acceleration”) is the following:</p>
+<blockquote>
+<p>The Shape Parameter for the key life distribution models (Weibull, Lognormal) does not change for units operating under different stresses. Probability plots of data from different stress cells will line up roughly parallel.</p>
+</blockquote>
+<p>These distributions and probability plotting will be discussed in later sections.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="compare.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-reliability.Rmd",
+"text": "Edit"
+},
+"download": ["eda.pdf", "eda.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

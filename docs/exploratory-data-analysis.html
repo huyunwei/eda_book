@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NIST/SEMATECH e-Handbook of Statistical Methods</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="NIST/SEMATECH e-Handbook of Statistical Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="NIST/SEMATECH e-Handbook of Statistical Methods" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="NIST">
+
+
+<meta name="date" content="2018-02-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="measurement-process-characterization.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Motivation</a></li>
+<li class="chapter" data-level="1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>1</b> Exploratory Data Analysis</a><ul>
+<li class="chapter" data-level="1.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-introduction"><i class="fa fa-check"></i><b>1.1</b> EDA Introduction</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#what-is-eda"><i class="fa fa-check"></i><b>1.1.1</b> What is EDA?</a></li>
+<li class="chapter" data-level="1.1.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-versus-classical-and-bayesian"><i class="fa fa-check"></i><b>1.1.2</b> EDA versus Classical and Bayesian</a></li>
+<li class="chapter" data-level="1.1.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-vs.summary"><i class="fa fa-check"></i><b>1.1.3</b> EDA vs. Summary</a></li>
+<li class="chapter" data-level="1.1.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#what-are-the-eda-goals"><i class="fa fa-check"></i><b>1.1.4</b> What are the EDA Goals?</a></li>
+<li class="chapter" data-level="1.1.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#the-role-of-graphics"><i class="fa fa-check"></i><b>1.1.5</b> The Role of Graphics</a></li>
+<li class="chapter" data-level="1.1.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#an-edagraphics-example"><i class="fa fa-check"></i><b>1.1.6</b> An EDA/Graphics Example</a></li>
+<li class="chapter" data-level="1.1.7" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#general-problem-categories"><i class="fa fa-check"></i><b>1.1.7</b> General Problem Categories</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#eda-assumptions"><i class="fa fa-check"></i><b>1.2</b> EDA Assumptions</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#summary-1"><i class="fa fa-check"></i><b>1.2.1</b> Summary</a></li>
+<li class="chapter" data-level="1.2.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#table-of-contents-for-section-2"><i class="fa fa-check"></i><b>1.2.2</b> Table of Contents for Section 2</a></li>
+<li class="chapter" data-level="1.2.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#underlying-assumptions"><i class="fa fa-check"></i><b>1.2.3</b> Underlying Assumptions</a></li>
+<li class="chapter" data-level="1.2.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#importance"><i class="fa fa-check"></i><b>1.2.4</b> Importance</a></li>
+<li class="chapter" data-level="1.2.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#techniques-for-testing-assumptions"><i class="fa fa-check"></i><b>1.2.5</b> Techniques for Testing Assumptions</a></li>
+<li class="chapter" data-level="1.2.6" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#interpretation-of-4-plot"><i class="fa fa-check"></i><b>1.2.6</b> Interpretation of 4-Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="measurement-process-characterization.html"><a href="measurement-process-characterization.html"><i class="fa fa-check"></i><b>2</b> Measurement Process Characterization</a><ul>
+<li class="chapter" data-level="2.1" data-path="measurement-process-characterization.html"><a href="measurement-process-characterization.html#characterization"><i class="fa fa-check"></i><b>2.1</b> Characterization</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
+<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="6" data-path="monitor.html"><a href="monitor.html"><i class="fa fa-check"></i><b>6</b> Monitor</a></li>
+<li class="chapter" data-level="7" data-path="compare.html"><a href="compare.html"><i class="fa fa-check"></i><b>7</b> Compare</a></li>
+<li class="chapter" data-level="8" data-path="reliability.html"><a href="reliability.html"><i class="fa fa-check"></i><b>8</b> Reliability</a><ul>
+<li class="chapter" data-level="8.1" data-path="reliability.html"><a href="reliability.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="reliability.html"><a href="reliability.html#why-is-the-assessment-and-control-of-product-reliability-important"><i class="fa fa-check"></i><b>8.1.1</b> Why is the assessment and control of product reliability important?</a></li>
+<li class="chapter" data-level="8.1.2" data-path="reliability.html"><a href="reliability.html#what-are-the-basic-terms-and-models-used-for-reliability-evaluation"><i class="fa fa-check"></i><b>8.1.2</b> What are the basic terms and models used for reliability evaluation?</a></li>
+<li class="chapter" data-level="8.1.3" data-path="reliability.html"><a href="reliability.html#what-are-some-common-difficulties-with-reliability-data-and-how-are-they-overcome"><i class="fa fa-check"></i><b>8.1.3</b> What are some common difficulties with reliability data and how are they overcome?</a></li>
+<li class="chapter" data-level="8.1.4" data-path="reliability.html"><a href="reliability.html#what-is-physical-acceleration-and-how-do-we-model-it"><i class="fa fa-check"></i><b>8.1.4</b> What is “physical acceleration” and how do we model it?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NIST/SEMATECH e-Handbook of Statistical Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exploratory-data-analysis" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Exploratory Data Analysis</h1>
+<div id="eda-introduction" class="section level2">
+<h2><span class="header-section-number">1.1</span> EDA Introduction</h2>
+<div id="what-is-eda" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> What is EDA?</h3>
+<div id="approach" class="section level4">
+<h4><span class="header-section-number">1.1.1.1</span> Approach</h4>
+<p>Exploratory Data Analysis (EDA) is an approach/philosophy for data analysis that employs a variety of techniques (mostly graphical) to</p>
+<ul>
+<li>maximize insight into a data set;</li>
+<li>uncover underlying structure;</li>
+<li>extract important variables;</li>
+<li>detect outliers and anomalies;</li>
+<li>test underlying assumptions;</li>
+<li>develop parsimonious models; and</li>
+<li>determine optimal factor settings.</li>
+</ul>
+<p>Focus The EDA approach is precisely that–an approach–not a set of techniques, but an attitude/philosophy about how a data analysis should be carried out.</p>
+</div>
+<div id="philosophy" class="section level4">
+<h4><span class="header-section-number">1.1.1.2</span> Philosophy</h4>
+<p>EDA is not identical to statistical graphics although the two terms are used almost interchangeably. Statistical graphics is a collection of techniques–all graphically based and all focusing on one data characterization aspect. EDA encompasses a larger venue; EDA is an approach to data analysis that postpones the usual assumptions about what kind of model the data follow with the more direct approach of allowing the data itself to reveal its underlying structure and model. EDA is not a mere collection of techniques; EDA is a philosophy as to how we dissect a data set; what we look for; how we look; and how we interpret. It is true that EDA heavily uses the collection of techniques that we call “statistical graphics”, but it is not identical to statistical graphics per se.</p>
+</div>
+<div id="history" class="section level4">
+<h4><span class="header-section-number">1.1.1.3</span> History</h4>
+<p>The seminal work in EDA is Exploratory Data Analysis, Tukey, (1977). Over the years it has benefitted from other noteworthy publications such as Data Analysis and Regression, Mosteller and Tukey (1977), Interactive Data Analysis, Hoaglin (1977), The ABC’s of EDA, Velleman and Hoaglin (1981) and has gained a large following as “the” way to analyze a data set.</p>
+</div>
+<div id="techniques" class="section level4">
+<h4><span class="header-section-number">1.1.1.4</span> Techniques</h4>
+<p>Most EDA techniques are graphical in nature with a few quantitative techniques. The reason for the heavy reliance on graphics is that by its very nature the main role of EDA is to open-mindedly explore, and graphics gives the analysts unparalleled power to do so, enticing the data to reveal its structural secrets, and being always ready to gain some new, often unsuspected, insight into the data. In combination with the natural pattern-recognition capabilities that we all possess, graphics provides, of course, unparalleled power to carry this out. The particular graphical techniques employed in EDA are often quite simple, consisting of various techniques of:</p>
+<ul>
+<li>Plotting the raw data (such as data traces, histograms, bihistograms, probability plots, lag plots, block plots, and Youden plots.</li>
+<li>Plotting simple statistics such as mean plots, standard deviation plots, box plots, and main effects plots of the raw data.</li>
+<li>Positioning such plots so as to maximize our natural pattern-recognition abilities, such as using multiple plots per page.</li>
+</ul>
+</div>
+</div>
+<div id="eda-versus-classical-and-bayesian" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> EDA versus Classical and Bayesian</h3>
+<p>How Does Exploratory Data Analysis differ from Classical Data Analysis?</p>
+<div id="data-analysis-approaches" class="section level4">
+<h4><span class="header-section-number">1.1.2.1</span> Data Analysis Approaches</h4>
+<p>EDA is a data analysis approach. What other data analysis approaches exist and how does EDA differ from these other approaches? Three popular data analysis approaches are:</p>
+<ul>
+<li>Classical</li>
+<li>Exploratory (EDA)</li>
+<li>Bayesian</li>
+</ul>
+</div>
+<div id="paradigms-for-analysis-techniques" class="section level4">
+<h4><span class="header-section-number">1.1.2.2</span> Paradigms for Analysis Techniques</h4>
+<p>These three approaches are similar in that they all start with a general science/engineering problem and all yield science/engineering conclusions. The difference is the sequence and focus of the intermediate steps.</p>
+<ul>
+<li>For classical analysis, the sequence is Problem =&gt; Data =&gt; Model =&gt; Analysis =&gt; Conclusions</li>
+<li>For EDA, the sequence is Problem =&gt; Data =&gt; Analysis =&gt; Model =&gt; Conclusions</li>
+<li>For Bayesian, the sequence is Problem =&gt; Data =&gt; Model =&gt; Prior Distribution =&gt; Analysis =&gt; Conclusions</li>
+</ul>
+</div>
+<div id="method-of-dealing-with-underlying-model-for-the-data-distinguishes-the-3-approaches" class="section level4">
+<h4><span class="header-section-number">1.1.2.3</span> Method of dealing with underlying model for the data distinguishes the 3 approaches</h4>
+<p>Thus for classical analysis, the data collection is followed by the imposition of a model (normality, linearity, etc.) and the analysis, estimation, and testing that follows are focused on the parameters of that model. For EDA, the data collection is not followed by a model imposition; rather it is followed immediately by analysis with a goal of inferring what model would be appropriate. Finally, for a Bayesian analysis, the analyst attempts to incorporate scientific/engineering knowledge/expertise into the analysis by imposing a data-independent distribution on the parameters of the selected model; the analysis thus consists of formally combining both the prior distribution on the parameters and the collected data to jointly make inferences and/or test assumptions about the model parameters. In the real world, data analysts freely mix elements of all of the above three approaches (and other approaches). The above distinctions were made to emphasize the major differences among the three approaches.</p>
+</div>
+<div id="further-discussion-of-the-distinction-between-the-classical-and-eda-approaches" class="section level4">
+<h4><span class="header-section-number">1.1.2.4</span> Further discussion of the distinction between the classical and EDA approaches</h4>
+<p>Focusing on EDA versus classical, these two approaches differ as follows:</p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="42%" />
+<col width="42%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approacches</th>
+<th>Classicial</th>
+<th>EDA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Models</td>
+<td>The classical approach imposes models (both deterministic and probabilistic) on the data. Deterministic models include, for example, regression models and analysis of variance (ANOVA) models. The most common probabilistic model assumes that the errors about the deterministic model are normally distributed–this assumption affects the validity of the ANOVA F tests.</td>
+<td>The Exploratory Data Analysis approach does not impose deterministic or probabilistic models on the data. On the contrary, the EDA approach allows the data to suggest admissible models that best fit the data.</td>
+</tr>
+<tr class="even">
+<td>Focus</td>
+<td>The two approaches differ substantially in focus. For classical analysis, the focus is on the model–estimating parameters of the model and generating predicted values from the model.</td>
+<td>For exploratory data analysis, the focus is on the data–its structure, outliers, and models suggested by the data.</td>
+</tr>
+<tr class="odd">
+<td>Techniques</td>
+<td>Classical techniques are generally quantitative in nature. They include ANOVA, t tests, chi-squared tests, and F tests.</td>
+<td>Exploratory EDA techniques are generally graphical. They include scatter plots, character plots, box plots, histograms, bihistograms, probability plots, residual plots, and mean plots.</td>
+</tr>
+<tr class="even">
+<td>Rigor</td>
+<td>Classical techniques serve as the probabilistic foundation of science and engineering; the most important characteristic of classical techniques is that they are rigorous, formal, and “objective”.</td>
+<td>EDA techniques do not share in that rigor or formality. EDA techniques make up for that lack of rigor by being very suggestive, indicative, and insightful about what the appropriate model should be. <br/>EDA techniques are subjective and depend on interpretation which may differ from analyst to analyst, although experienced analysts commonly arrive at identical conclusions.</td>
+</tr>
+<tr class="odd">
+<td>Data Treatment</td>
+<td>Classical estimation techniques have the characteristic of taking all of the data and mapping the data into a few numbers (“estimates”). This is both a virtue and a vice. The virtue is that these few numbers focus on important characteristics (location, variation, etc.) of the population. The vice is that concentrating on these few characteristics can filter out other characteristics (skewness, tail length, autocorrelation, etc.) of the same population. In this sense there is a loss of information due to this “filtering” process.</td>
+<td>The EDA approach, on the other hand, often makes use of (and shows) all of the available data. In this sense there is no corresponding loss of information.</td>
+</tr>
+<tr class="even">
+<td>Assumptions</td>
+<td>The “good news” of the classical approach is that tests based on classical techniques are usually very sensitive–that is, if a true shift in location, say, has occurred, such tests frequently have the power to detect such a shift and to conclude that such a shift is “statistically significant”. The “bad news” is that classical tests depend on underlying assumptions (e.g., normality), and hence the validity of the test conclusions becomes dependent on the validity of the underlying assumptions. Worse yet, the exact underlying assumptions may be unknown to the analyst, or if known, untested. Thus the validity of the scientific conclusions becomes intrinsically linked to the validity of the underlying assumptions. In practice, if such assumptions are unknown or untested, the validity of the scientific conclusions becomes suspect.</td>
+<td>Many EDA techniques make little or no assumptions–they present and show the data–all of the data–as is, with fewer encumbering assumptions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="eda-vs.summary" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> EDA vs. Summary</h3>
+<p>How Does Exploratory Data Analysis Differ from Summary Analysis?</p>
+<div id="summary" class="section level4">
+<h4><span class="header-section-number">1.1.3.1</span> Summary</h4>
+<p>A summary analysis is simply a numeric reduction of a historical data set. It is quite passive. Its focus is in the past. Quite commonly, its purpose is to simply arrive at a few key statistics (for example, mean and standard deviation) which may then either replace the data set or be added to the data set in the form of a summary table.</p>
+</div>
+<div id="exploratory" class="section level4">
+<h4><span class="header-section-number">1.1.3.2</span> Exploratory</h4>
+<p>In contrast, EDA has as its broadest goal the desire to gain insight into the engineering/scientific process behind the data. Whereas summary statistics are passive and historical, EDA is active and futuristic. In an attempt to “understand” the process and improve it in the future, EDA uses the data as a “window” to peer into the heart of the process that generated the data. There is an archival role in the research and manufacturing world for summary statistics, but there is an enormously larger role for the EDA approach.</p>
+</div>
+</div>
+<div id="what-are-the-eda-goals" class="section level3">
+<h3><span class="header-section-number">1.1.4</span> What are the EDA Goals?</h3>
+<div id="primary-and-secondary-goals" class="section level4">
+<h4><span class="header-section-number">1.1.4.1</span> Primary and Secondary Goals</h4>
+<p>The primary goal of EDA is to maximize the analyst’s insight into a data set and into the underlying structure of a data set, while providing all of the specific items that an analyst would want to extract from a data set, such as:</p>
+<ul>
+<li>a good-fitting, parsimonious model</li>
+<li>a list of outliers</li>
+<li>a sense of robustness of conclusions</li>
+<li>estimates for parameters</li>
+<li>uncertainties for those estimates</li>
+<li>a ranked list of important factors</li>
+<li>conclusions as to whether individual factors are statistically significant</li>
+<li>optimal settings</li>
+</ul>
+</div>
+<div id="insight-into-the-data" class="section level4">
+<h4><span class="header-section-number">1.1.4.2</span> Insight into the Data</h4>
+<p>Insight implies detecting and uncovering underlying structure in the data. Such underlying structure may not be encapsulated in the list of items above; such items serve as the specific targets of an analysis, but the real insight and “feel” for a data set comes as the analyst judiciously probes and explores the various subtleties of the data. The “feel” for the data comes almost exclusively from the application of various graphical techniques, the collection of which serves as the window into the essence of the data. Graphics are irreplaceable–there are no quantitative analogues that will give the same insight as well-chosen graphics. To get a “feel” for the data, it is not enough for the analyst to know what is in the data; the analyst also must know what is not in the data, and the only way to do that is to draw on our own human pattern-recognition and comparative abilities in the context of a series of judicious graphical techniques applied to the data.</p>
+</div>
+</div>
+<div id="the-role-of-graphics" class="section level3">
+<h3><span class="header-section-number">1.1.5</span> The Role of Graphics</h3>
+<div id="quantitativegraphical" class="section level4">
+<h4><span class="header-section-number">1.1.5.1</span> Quantitative/Graphical</h4>
+<p>Statistics and data analysis procedures can broadly be split into two parts:</p>
+<ul>
+<li>quantitative</li>
+<li>graphical</li>
+</ul>
+<div id="quantitative" class="section level5">
+<h5><span class="header-section-number">1.1.5.1.1</span> Quantitative</h5>
+<p>Quantitative techniques are the set of statistical procedures that yield numeric or tabular output. Examples of quantitative techniques include:</p>
+<ul>
+<li>hypothesis testing</li>
+<li>analysis of variance</li>
+<li>point estimates and confidence intervals</li>
+<li><p>least squares regression These and similar techniques are all valuable and are mainstream in terms of classical analysis. Graphical On the other hand, there is a large collection of statistical tools that we generally refer to as graphical techniques. These include:</p></li>
+<li>scatter plots</li>
+<li>histograms</li>
+<li>probability plots</li>
+<li>residual plots</li>
+<li>box plots</li>
+<li><p>block plots</p></li>
+</ul>
+</div>
+</div>
+<div id="eda-approach-relies-heavily-on-graphical-techniques" class="section level4">
+<h4><span class="header-section-number">1.1.5.2</span> EDA Approach Relies Heavily on Graphical Techniques</h4>
+<p>The EDA approach relies heavily on these and similar graphical techniques. Graphical procedures are not just tools that we could use in an EDA context, they are tools that we must use. Such graphical tools are the shortest path to gaining insight into a data set in terms of</p>
+<ul>
+<li>testing assumptions</li>
+<li>model selection</li>
+<li>model validation</li>
+<li>estimator selection</li>
+<li>relationship identification</li>
+<li>factor effect determination</li>
+<li>outlier detection</li>
+</ul>
+<p>If one is not using statistical graphics, then one is forfeiting insight into one or more aspects of the underlying structure of the data.</p>
+</div>
+</div>
+<div id="an-edagraphics-example" class="section level3">
+<h3><span class="header-section-number">1.1.6</span> An EDA/Graphics Example</h3>
+<div id="anscombe-example" class="section level4">
+<h4><span class="header-section-number">1.1.6.1</span> Anscombe Example</h4>
+<p>A simple, classic (Anscombe) example of the central role that graphics play in terms of providing insight into a data set starts with the following data set: Data<br />
+X Y 10.00 8.04 8.00 6.95 13.00 7.58 9.00 8.81 11.00 8.33 14.00 9.96 6.00 7.24 4.00 4.26 12.00 10.84 7.00 4.82 5.00 5.68</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(anscombe[<span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>,<span class="st">&quot;y1&quot;</span>)])</code></pre></div>
+<pre><code>##    x1    y1
+## 1  10  8.04
+## 2   8  6.95
+## 3  13  7.58
+## 4   9  8.81
+## 5  11  8.33
+## 6  14  9.96
+## 7   6  7.24
+## 8   4  4.26
+## 9  12 10.84
+## 10  7  4.82
+## 11  5  5.68</code></pre>
+</div>
+<div id="summary-statistics" class="section level4">
+<h4><span class="header-section-number">1.1.6.2</span> Summary Statistics</h4>
+<p>If the goal of the analysis is to compute summary statistics plus determine the best linear fit for Y as a function of X, the results might be given as: &gt; N = 11 &gt; Mean of X = 9.0 &gt; Mean of Y = 7.5 &gt; Intercept = 3 &gt; Slope = 0.5 &gt; Residual standard deviation = 1.237 &gt; Correlation = 0.816</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(skimr<span class="op">::</span><span class="kw">skim</span>(anscombe[<span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>, <span class="st">&quot;y1&quot;</span>)]))</code></pre></div>
+<pre><code>## Skim summary statistics
+##  n obs: 11 
+##  n variables: 2 
+## 
+## Variable type: numeric 
+##  variable missing complete  n mean   sd   p0  p25 median   p75  p100
+##        x1       0       11 11  9   3.32 4    6.5    9    11.5  14   
+##        y1       0       11 11  7.5 2.03 4.26 6.31   7.58  8.57 10.84
+##      hist
+##  ▇▃▃▇▃▃▃▇
+##  ▅▂▁▅▇▂▂▂</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">summary</span>(<span class="kw">lm</span>(y1<span class="op">~</span>x1, <span class="dt">data =</span> anscombe)))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y1 ~ x1, data = anscombe)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.92127 -0.45577 -0.04136  0.70941  1.83882 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)   3.0001     1.1247   2.667  0.02573 * 
+## x1            0.5001     0.1179   4.241  0.00217 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.237 on 9 degrees of freedom
+## Multiple R-squared:  0.6665, Adjusted R-squared:  0.6295 
+## F-statistic: 17.99 on 1 and 9 DF,  p-value: 0.00217</code></pre>
+<p>The above quantitative analysis, although valuable, gives us only limited insight into the data.</p>
+</div>
+<div id="scatter-plot" class="section level4">
+<h4><span class="header-section-number">1.1.6.3</span> Scatter Plot</h4>
+<p>n contrast, the following simple scatter plot of the data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(anscombe, <span class="kw">aes</span>(x1, y1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
+<p><img src="eda_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>A scatter plot of the Anscombe data suggests the following:</p>
+<ul>
+<li>The data set “behaves like” a linear curve with some scatter;</li>
+<li>there is no justification for a more complicated model (e.g., quadratic);</li>
+<li>there are no outliers;</li>
+<li>the vertical spread of the data appears to be of equal height irrespective of the X-value; this indicates that the data are equally-precise throughout and so a “regular” (that is, equi-weighted) fit is appropriate.</li>
+</ul>
+</div>
+<div id="three-additional-data-sets" class="section level4">
+<h4><span class="header-section-number">1.1.6.4</span> Three Additional Data Sets</h4>
+<p>This kind of characterization for the data serves as the core for getting insight/feel for the data. Such insight/feel does not come from the quantitative statistics; on the contrary, calculations of quantitative statistics such as intercept and slope should be subsequent to the characterization and will make sense only if the characterization is true. To illustrate the loss of information that results when the graphics insight step is skipped, consider the following three data sets [Anscombe data sets 2, 3, and 4]: X2 Y2 X3 Y3 X4 Y4 10.00 9.14 10.00 7.46 8.00 6.58 8.00 8.14 8.00 6.77 8.00 5.76 13.00 8.74 13.00 12.74 8.00 7.71 9.00 8.77 9.00 7.11 8.00 8.84 11.00 9.26 11.00 7.81 8.00 8.47 14.00 8.10 14.00 8.84 8.00 7.04 6.00 6.13 6.00 6.08 8.00 5.25 4.00 3.10 4.00 5.39 19.00 12.50 12.00 9.13 12.00 8.15 8.00 5.56 7.00 7.26 7.00 6.42 8.00 7.91 5.00 4.74 5.00 5.73 8.00 6.89</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(skimr<span class="op">::</span><span class="kw">skim</span>(anscombe[<span class="kw">c</span>(<span class="st">&quot;x2&quot;</span>, <span class="st">&quot;y2&quot;</span>, <span class="st">&quot;x3&quot;</span>, <span class="st">&quot;y3&quot;</span>, <span class="st">&quot;x4&quot;</span>, <span class="st">&quot;y4&quot;</span>)]))</code></pre></div>
+<pre><code>## Skim summary statistics
+##  n obs: 11 
+##  n variables: 6 
+## 
+## Variable type: numeric 
+##  variable missing complete  n mean   sd   p0  p25 median   p75  p100
+##        x2       0       11 11  9   3.32 4    6.5    9    11.5  14   
+##        x3       0       11 11  9   3.32 4    6.5    9    11.5  14   
+##        x4       0       11 11  9   3.32 8    8      8     8    19   
+##        y2       0       11 11  7.5 2.03 3.1  6.7    8.14  8.95  9.26
+##        y3       0       11 11  7.5 2.03 5.39 6.25   7.11  7.98 12.74
+##        y4       0       11 11  7.5 2.03 5.25 6.17   7.04  8.19 12.5 
+##      hist
+##  ▇▃▃▇▃▃▃▇
+##  ▇▃▃▇▃▃▃▇
+##  ▇▁▁▁▁▁▁▁
+##  ▂▁▂▂▁▂▃▇
+##  ▇▇▅▅▁▁▁▂
+##  ▇▇▅▅▁▁▁▂</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">summary</span>(<span class="kw">lm</span>(y1<span class="op">~</span>x1, <span class="dt">data =</span> anscombe)))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y1 ~ x1, data = anscombe)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.92127 -0.45577 -0.04136  0.70941  1.83882 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)   3.0001     1.1247   2.667  0.02573 * 
+## x1            0.5001     0.1179   4.241  0.00217 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.237 on 9 degrees of freedom
+## Multiple R-squared:  0.6665, Adjusted R-squared:  0.6295 
+## F-statistic: 17.99 on 1 and 9 DF,  p-value: 0.00217</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">summary</span>(<span class="kw">lm</span>(y1<span class="op">~</span>x1, <span class="dt">data =</span> anscombe)))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y1 ~ x1, data = anscombe)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.92127 -0.45577 -0.04136  0.70941  1.83882 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)   3.0001     1.1247   2.667  0.02573 * 
+## x1            0.5001     0.1179   4.241  0.00217 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.237 on 9 degrees of freedom
+## Multiple R-squared:  0.6665, Adjusted R-squared:  0.6295 
+## F-statistic: 17.99 on 1 and 9 DF,  p-value: 0.00217</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">summary</span>(<span class="kw">lm</span>(y1<span class="op">~</span>x1, <span class="dt">data =</span> anscombe)))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y1 ~ x1, data = anscombe)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.92127 -0.45577 -0.04136  0.70941  1.83882 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)   3.0001     1.1247   2.667  0.02573 * 
+## x1            0.5001     0.1179   4.241  0.00217 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.237 on 9 degrees of freedom
+## Multiple R-squared:  0.6665, Adjusted R-squared:  0.6295 
+## F-statistic: 17.99 on 1 and 9 DF,  p-value: 0.00217</code></pre>
+<p>Quantitative Statistics for Data Set 2 A quantitative analysis on data set 2 yields</p>
+<blockquote>
+<ul>
+<li>N = 11</li>
+<li>Mean of X = 9.0</li>
+<li>Mean of Y = 7.5</li>
+<li>Intercept = 3</li>
+<li>Slope = 0.5</li>
+<li>Residual standard deviation = 1.237</li>
+<li>Correlation = 0.816</li>
+</ul>
+</blockquote>
+<p>which is identical to the analysis for data set 1. One might naively assume that the two data sets are “equivalent” since that is what the statistics tell us; but what do the statistics not tell us? Quantitative Statistics for Data Sets 3 and 4 Remarkably, a quantitative analysis on data sets 3 and 4 also yields</p>
+<blockquote>
+<ul>
+<li>N = 11</li>
+<li>Mean of X = 9.0</li>
+<li>Mean of Y = 7.5</li>
+<li>Intercept = 3</li>
+<li>Slope = 0.5</li>
+<li>Residual standard deviation = 1.236</li>
+<li>Correlation = 0.816 (0.817 for data set 4)</li>
+</ul>
+</blockquote>
+<p>which implies that in some quantitative sense, all four of the data sets are “equivalent”. In fact, the four data sets are far from “equivalent” and a scatter plot of each data set, which would be step 1 of any EDA approach, would tell us that immediately.</p>
+</div>
+<div id="scatter-plots" class="section level4">
+<h4><span class="header-section-number">1.1.6.5</span> Scatter Plots</h4>
+<p>4 scatter plots that exhibit different characteristcs</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add scatter plots here</span>
+<span class="kw">library</span>(gridExtra)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;gridExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     combine</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p1 =<span class="st"> </span><span class="kw">ggplot</span>(anscombe, <span class="kw">aes</span>(x1, y1)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()  <span class="op">+</span>
+  <span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="dv">4</span>,<span class="dv">20</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">4</span>,<span class="dv">13</span>)
+p2 =<span class="st"> </span><span class="kw">ggplot</span>(anscombe, <span class="kw">aes</span>(x2, y2)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()  <span class="op">+</span>
+  <span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="dv">4</span>,<span class="dv">20</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">4</span>,<span class="dv">13</span>)
+p3 =<span class="st"> </span><span class="kw">ggplot</span>(anscombe, <span class="kw">aes</span>(x3, y3)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()  <span class="op">+</span>
+  <span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="dv">4</span>,<span class="dv">20</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">4</span>,<span class="dv">13</span>)
+p4 =<span class="st"> </span><span class="kw">ggplot</span>(anscombe, <span class="kw">aes</span>(x4, y4)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()  <span class="op">+</span>
+  <span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="dv">4</span>,<span class="dv">20</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">4</span>,<span class="dv">13</span>)
+ 
+ 
+gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, p3, p4, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<p><img src="eda_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Interpretation of Scatter Plots Conclusions from the scatter plots are:</p>
+<ul>
+<li>data set 1 is clearly linear with some scatter.</li>
+<li>data set 2 is clearly quadratic.</li>
+<li>data set 3 clearly has an outlier.</li>
+<li>data set 4 is obviously the victim of a poor experimental design with a single point far removed from the bulk of the data “wagging the dog”.</li>
+</ul>
+<p>Importance of Exploratory Analysis These points are exactly the substance that provide and define “insight” and “feel” for a data set. They are the goals and the fruits of an open exploratory data analysis (EDA) approach to the data. Quantitative statistics are not wrong per se, but they are incomplete. They are incomplete because they are numeric summaries which in the summarization operation do a good job of focusing on a particular aspect of the data (e.g., location, intercept, slope, degree of relatedness, etc.) by judiciously reducing the data to a few numbers. Doing so also filters the data, necessarily omitting and screening out other sometimes crucial information in the focusing operation. Quantitative statistics focus but also filter; and filtering is exactly what makes the quantitative approach incomplete at best and misleading at worst. The estimated intercepts (= 3) and slopes (= 0.5) for data sets 2, 3, and 4 are misleading because the estimation is done in the context of an assumed linear model and that linearity assumption is the fatal flaw in this analysis.</p>
+<p>The EDA approach of deliberately postponing the model selection until further along in the analysis has many rewards, not the least of which is the ultimate convergence to a much-improved model and the formulation of valid and supportable scientific and engineering conclusions.</p>
+</div>
+</div>
+<div id="general-problem-categories" class="section level3">
+<h3><span class="header-section-number">1.1.7</span> General Problem Categories</h3>
+<p>The following table is a convenient way to classify EDA problems.</p>
+<div id="univariate-and-control" class="section level4">
+<h4><span class="header-section-number">1.1.7.1</span> Univariate and Control</h4>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="42%" />
+<col width="42%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Classification</th>
+<th>Univariate</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data</td>
+<td>A single column of numbers, Y.</td>
+<td>A single column of numbers, Y.</td>
+</tr>
+<tr class="even">
+<td>Model</td>
+<td>y = constant + error</td>
+<td>y = constant + error</td>
+</tr>
+<tr class="odd">
+<td>Output</td>
+<td>- A number (the estimated constant in the model).<br/>- An estimate of uncertainty for the constant.<br/>- An estimate of the distribution for the error.</td>
+<td>A “yes” or “no” to the question “Is the system out of control?”</td>
+</tr>
+<tr class="even">
+<td>Techniques</td>
+<td>4-Plot<br/>Probability Plot<br/>PPCC Plot</td>
+<td>Control Charts</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="comparative-and-screening" class="section level4">
+<h4><span class="header-section-number">1.1.7.2</span> Comparative and Screening</h4>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="42%" />
+<col width="42%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Classification</th>
+<th>Comparative</th>
+<th>Screening</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data</td>
+<td>A single response variable and k independent variables (Y, X<sub>1</sub>, X<sub>2</sub>, … , X<sub>k</sub>), primary focus is on one (the primary factor) of these independent variables.</td>
+<td>A single response variable and k independent variables (Y, X<sub>1</sub>, X<sub>2</sub>, … , X<sub>k</sub>).</td>
+</tr>
+<tr class="even">
+<td>Model</td>
+<td>y = f(x<sub>1</sub>, x<sub>2</sub>, …, x<sub>k</sub>) + error</td>
+<td>y = f(x<sub>1</sub>, x<sub>2</sub>, …, x<sub>k</sub>) + error</td>
+</tr>
+<tr class="odd">
+<td>Output</td>
+<td>A “yes” or “no” to the question “Is the primary factor significant?”.</td>
+<td>A ranked list (from most important to least important) of factors.<br/>Best settings for the factors.<br/>A good model/prediction equation relating Y to the factors.</td>
+</tr>
+<tr class="even">
+<td>Techniques</td>
+<td>Block Plot<br/>Scatter Plot<br/>Box Plot</td>
+<td>Block Plot<br/>Probability Plot<br/>Bihistogram</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="optimization-and-regression" class="section level4">
+<h4><span class="header-section-number">1.1.7.3</span> Optimization and Regression</h4>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="42%" />
+<col width="42%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Classification</th>
+<th>Optimizatio</th>
+<th>Regression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data</td>
+<td>A single response variable and k independent variables (Y, X<sub>1</sub>, X<sub>2</sub>, … , X<sub>k</sub>).</td>
+<td>A single response variable and k independent variables (Y, X<sub>1</sub>, X<sub>2</sub>, … , X<sub>k</sub>)<br/>The independent variables can be continuous.</td>
+</tr>
+<tr class="even">
+<td>Model</td>
+<td>y = f(x<sub>1</sub>, x<sub>2</sub>, …, x<sub>k</sub>) + error</td>
+<td>y = f(x<sub>1</sub>, x<sub>2</sub>, …, x<sub>k</sub>) + error</td>
+</tr>
+<tr class="odd">
+<td>Output</td>
+<td>Best settings for the factor variables.</td>
+<td>A good model/prediction equation relating Y to the factors.</td>
+</tr>
+<tr class="even">
+<td>Techniques</td>
+<td>Block Plot<br/>Least Squares Fitting<br/>Contour Plot</td>
+<td>Least Squares Fitting<br/>Scatter Plot<br/>6-Plot</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="time-series-and-multivariate" class="section level4">
+<h4><span class="header-section-number">1.1.7.4</span> Time Series and Multivariate</h4>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="42%" />
+<col width="42%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Classification</th>
+<th>Optimizatio</th>
+<th>Regression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data</td>
+<td>A column of time dependent numbers, Y. In addition, time is an indpendent variable. The time variable can be either explicit or implied. If the data are not equi-spaced, the time variable should be explicitly provided.</td>
+<td>k factor variables (X1, X2, … , Xk).</td>
+</tr>
+<tr class="even">
+<td>Model</td>
+<td>y<sub>t</sub> = f(t) + error<br/>The model can be either a time domain based or frequency domain based.</td>
+<td>The model is not explicit.</td>
+</tr>
+<tr class="odd">
+<td>Output</td>
+<td>A good model/prediction equation relating Y to previous values of Y.</td>
+<td>Identify underlying correlation structure in the data.</td>
+</tr>
+<tr class="even">
+<td>Techniques</td>
+<td>Autocorrelation Plot<br/>Spectrum<br/>Complex Demodulation Amplitude Plot<br/>Complex Demodulation Phase Plot<br>ARIMA Models</td>
+<td>Star Plot<br/>Scatter Plot Matrix<br/>Conditioning Plot<br/>Profile Plot<br/>Principal Components<br/>Clustering<br/>Discrimination/Classification</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="eda-assumptions" class="section level2">
+<h2><span class="header-section-number">1.2</span> EDA Assumptions</h2>
+<div id="summary-1" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Summary</h3>
+<p>The gamut of scientific and engineering experimentation is virtually limitless. In this sea of diversity is there any common basis that allows the analyst to systematically and validly arrive at supportable, repeatable research conclusions? Fortunately, there is such a basis and it is rooted in the fact that every measurement process, however complicated, has certain underlying assumptions. This section deals with what those assumptions are, why they are important, how to go about testing them, and what the consequences are if the assumptions do not hold.</p>
+</div>
+<div id="table-of-contents-for-section-2" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Table of Contents for Section 2</h3>
+<ul>
+<li>Underlying Assumptions</li>
+<li>Importance</li>
+<li>Testing Assumptions</li>
+<li>Importance of Plots</li>
+<li>Consequences</li>
+</ul>
+</div>
+<div id="underlying-assumptions" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Underlying Assumptions</h3>
+<div id="assumptions-underlying-a-measurement-process" class="section level4">
+<h4><span class="header-section-number">1.2.3.1</span> Assumptions Underlying a Measurement Process</h4>
+<p>There are four assumptions that typically underlie all measurement processes; namely, that the data from the process at hand “behave like”:</p>
+<ul>
+<li>random drawings;</li>
+<li>from a fixed distribution;</li>
+<li>with the distribution having fixed location; and</li>
+<li>with the distribution having fixed variation.</li>
+</ul>
+</div>
+<div id="univariate-or-single-response-variable" class="section level4">
+<h4><span class="header-section-number">1.2.3.2</span> Univariate or Single Response Variable</h4>
+<p>The “fixed location” referred to in item 3 above differs for different problem types. The simplest problem type is univariate; that is, a single variable. For the univariate problem, the general model &gt; response = deterministic component + random component becomes &gt; response = constant + error</p>
+</div>
+<div id="assumptions-for-univariate-model" class="section level4">
+<h4><span class="header-section-number">1.2.3.3</span> Assumptions for Univariate Model</h4>
+<p>For this case, the “fixed location” is simply the unknown constant. We can thus imagine the process at hand to be operating under constant conditions that produce a single column of data with the properties that</p>
+<ul>
+<li>the data are uncorrelated with one another;</li>
+<li>the random component has a fixed distribution;</li>
+<li>the deterministic component consists of only a constant; and</li>
+<li>the random component has fixed variation.</li>
+</ul>
+</div>
+<div id="extrapolation-to-a-function-of-many-variables" class="section level4">
+<h4><span class="header-section-number">1.2.3.4</span> Extrapolation to a Function of Many Variables</h4>
+<p>The universal power and importance of the univariate model is that it can easily be extended to the more general case where the deterministic component is not just a constant, but is in fact a function of many variables, and the engineering objective is to characterize and model the function.</p>
+</div>
+<div id="residuals-will-behave-according-to-univariate-assumptions" class="section level4">
+<h4><span class="header-section-number">1.2.3.5</span> Residuals Will Behave According to Univariate Assumptions</h4>
+<p>The key point is that regardless of how many factors there are, and regardless of how complicated the function is, if the engineer succeeds in choosing a good model, then the differences (residuals) between the raw response data and the predicted values from the fitted model should themselves behave like a univariate process. Furthermore, the residuals from this univariate process fit will behave like: random drawings; from a fixed distribution; with fixed location (namely, 0 in this case); and with fixed variation. Validation of Model Thus if the residuals from the fitted model do in fact behave like the ideal, then testing of underlying assumptions becomes a tool for the validation and quality of fit of the chosen model. On the other hand, if the residuals from the chosen fitted model violate one or more of the above univariate assumptions, then the chosen fitted model is inadequate and an opportunity exists for arriving at an improved model.</p>
+</div>
+</div>
+<div id="importance" class="section level3">
+<h3><span class="header-section-number">1.2.4</span> Importance</h3>
+<div id="predictability-and-statistical-control" class="section level4">
+<h4><span class="header-section-number">1.2.4.1</span> Predictability and Statistical Control</h4>
+<p>Predictability is an all-important goal in science and engineering. If the four underlying assumptions hold, then we have achieved probabilistic predictability–the ability to make probability statements not only about the process in the past, but also about the process in the future. In short, such processes are said to be “in statistical control”.</p>
+</div>
+<div id="validity-of-engineering" class="section level4">
+<h4><span class="header-section-number">1.2.4.2</span> Validity of Engineering</h4>
+<p>Conclusions Moreover, if the four assumptions are valid, then the process is amenable to the generation of valid scientific and engineering conclusions. If the four assumptions are not valid, then the process is drifting (with respect to location, variation, or distribution), unpredictable, and out of control. A simple characterization of such processes by a location estimate, a variation estimate, or a distribution “estimate” inevitably leads to engineering conclusions that are not valid, are not supportable (scientifically or legally), and which are not repeatable in the laboratory.</p>
+</div>
+</div>
+<div id="techniques-for-testing-assumptions" class="section level3">
+<h3><span class="header-section-number">1.2.5</span> Techniques for Testing Assumptions</h3>
+<div id="testing-underlying-assumptions-helps-assure-the-validity-of-scientific-and-engineering-conclusions" class="section level4">
+<h4><span class="header-section-number">1.2.5.1</span> Testing Underlying Assumptions Helps Assure the Validity of Scientific and Engineering Conclusions</h4>
+<p>Because the validity of the final scientific/engineering conclusions is inextricably linked to the validity of the underlying univariate assumptions, it naturally follows that there is a real necessity that each and every one of the above four assumptions be routinely tested.</p>
+<p>Four Techniques to Test Underlying Assumptions<br />
+The following EDA techniques are simple, efficient, and powerful for the routine testing of underlying assumptions:</p>
+<ol style="list-style-type: decimal">
+<li>run sequence plot (Yi versus i)</li>
+<li>lag plot (Yi versus Yi-1)</li>
+<li>histogram (counts versus subgroups of Y)</li>
+<li>normal probability plot (ordered Y versus theoretical ordered Y)</li>
+</ol>
+</div>
+<div id="plot-on-a-single-page-for-a-quick-characterization-of-the-data" class="section level4">
+<h4><span class="header-section-number">1.2.5.2</span> Plot on a Single Page for a Quick Characterization of the Data</h4>
+<p>The four EDA plots can be juxtaposed for a quick look at the characteristics of the data. The plots below are ordered as follows:</p>
+<ul>
+<li>Run sequence plot - upper left</li>
+<li>Lag plot - upper right</li>
+<li>Histogram - lower left</li>
+<li>Normal probability plot - lower right</li>
+</ul>
+</div>
+<div id="sample-plot-assumptions-hold" class="section level4">
+<h4><span class="header-section-number">1.2.5.3</span> Sample Plot: Assumptions Hold</h4>
+<p>A 4-Plot which shows fixed location, fixed variation, fixed normal distribution, and no outliers</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#insert 4-plot</span>
+<span class="kw">library</span>(tidyverse)
+four_plot &lt;-<span class="st"> </span><span class="cf">function</span> (y){
+  <span class="co"># take in a numeric verctor for univariate analysis</span>
+  <span class="cf">if</span>(<span class="op">!</span><span class="st"> </span><span class="kw">is.numeric</span>(y)) <span class="kw">stop</span>(<span class="st">&quot;Requires a numeric vector&quot;</span>)
+  da &lt;-<span class="st"> </span><span class="kw">tibble</span>( <span class="dt">idx =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(y), y )
+  p1 =<span class="st"> </span><span class="kw">ggplot</span>(da, <span class="kw">aes</span>(<span class="dt">x=</span>idx, <span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="co"># run sequenc</span>
+  p2 =<span class="st"> </span><span class="kw">ggplot</span>(da, <span class="kw">aes</span>(<span class="dt">x =</span> y, <span class="dt">y =</span> <span class="kw">c</span>(<span class="kw">tail</span>(y, <span class="op">-</span><span class="dv">1</span>),<span class="dv">0</span>))) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="co"># lag plot</span>
+  p3 =<span class="st"> </span><span class="kw">ggplot</span>(da, <span class="kw">aes</span>(<span class="dt">x=</span>y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>() <span class="co">#histogram</span>
+  p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(da, <span class="kw">aes</span>(<span class="dt">sample=</span>y)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_qq</span>() <span class="co"># qqplot</span>
+  gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, p3, p4, <span class="dt">ncol =</span> <span class="dv">2</span>)
+}
+
+<span class="kw">four_plot</span>(<span class="kw">rnorm</span>(<span class="dv">500</span>))</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="eda_files/figure-html/unnamed-chunk-8-1.png" width="672" /> This 4-plot of 500 normal random numbers reveals a process that has fixed location, fixed variation, is random, apparently has a fixed approximately normal distribution, and has no outliers.</p>
+</div>
+<div id="sample-plot-assumptions-do-not-hold" class="section level4">
+<h4><span class="header-section-number">1.2.5.4</span> Sample Plot: Assumptions Do Not Hold</h4>
+<p>If one or more of the four underlying assumptions do not hold, then it will show up in the various plots as demonstrated in the following example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LEW &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;~/Dropbox/github/R_Codes_and_Data/Rdata/LEW.DAT&quot;</span>, 
+     <span class="dt">col_names =</span> <span class="ot">FALSE</span>, <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">X1 =</span> <span class="kw">col_double</span>()), <span class="dt">skip =</span> <span class="dv">25</span>)
+<span class="kw">names</span>(LEW) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;deflection&quot;</span>)
+<span class="kw">four_plot</span>(LEW<span class="op">$</span>deflection)</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="eda_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>This 4-plot reveals a process that has fixed location, fixed variation, is non-random (oscillatory), has a non-normal, U-shaped distribution, and has several outliers.</p>
+</div>
+</div>
+<div id="interpretation-of-4-plot" class="section level3">
+<h3><span class="header-section-number">1.2.6</span> Interpretation of 4-Plot</h3>
+<div id="interpretation-of-eda-plots-flat-and-equi-banded-random-bell-shaped-and-linear" class="section level4">
+<h4><span class="header-section-number">1.2.6.1</span> Interpretation of EDA Plots: Flat and Equi-Banded, Random, Bell-Shaped, and Linear</h4>
+<p>The four EDA plots discussed on the previous page are used to test the underlying assumptions:</p>
+<p><strong>- Fixed Location:</strong> If the fixed location assumption holds, then the run sequence plot will be flat and non-drifting.</p>
+<p><strong>- Fixed Variation:</strong> If the fixed variation assumption holds, then the vertical spread in the run sequence plot will be the approximately the same over the entire horizontal axis.</p>
+<p><strong>- Randomness:</strong> If the randomness assumption holds, then the lag plot will be structureless and random.</p>
+<p><strong>- Fixed Distribution:</strong> If the fixed distribution assumption holds, in particular if the fixed normal distribution holds, then</p>
+<ol style="list-style-type: decimal">
+<li>the histogram will be bell-shaped, and</li>
+<li>the normal probability plot will be linear.</li>
+</ol>
+</div>
+<div id="plots-utilized-to-test-the-assumptions" class="section level4">
+<h4><span class="header-section-number">1.2.6.2</span> Plots Utilized to Test the Assumptions</h4>
+<p>Conversely, the underlying assumptions are tested using the EDA plots:</p>
+<p><strong>- Run Sequence Plot:</strong> If the run sequence plot is flat and non-drifting, the fixed-location assumption holds. If the run sequence plot has a vertical spread that is about the same over the entire plot, then the fixed-variation assumption holds.</p>
+<p><strong>- Lag Plot:</strong> If the lag plot is structureless, then the randomness assumption holds.</p>
+<p><strong>- Histogram:</strong> If the histogram is bell-shaped, the underlying distribution is symmetric and perhaps approximately normal.</p>
+<p><strong>- Normal Probability Plot:</strong> If the normal probability plot is linear, the underlying distribution is approximately normal.</p>
+<p>If all four of the assumptions hold, then the process is said definitionally to be “in statistical control”.</p>
+<hr />
+<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="#intro"><strong>??</strong></a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="methods.html#methods">3</a>.</p>
+<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
+<span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
+<img src="eda_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
+<p class="caption">
+Figure 1.1: Here is a nice figure!
+</p>
+</div>
+<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="exploratory-data-analysis.html#fig:nice-fig">1.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="exploratory-data-analysis.html#tab:nice-tab">1.1</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
+  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,
+  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
+)</code></pre></div>
+<table>
+<caption><span id="tab:nice-tab">Table 1.1: </span>Here is a nice table!</caption>
+<thead>
+<tr class="header">
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.6</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">2.9</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.3</td>
+<td align="right">3.0</td>
+<td align="right">1.1</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">4.0</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">4.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.3</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.7</td>
+<td align="right">3.8</td>
+<td align="right">1.7</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.5</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+</tbody>
+</table>
+<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown">2018</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span>.</p>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-bookdown">
+<p>Xie, Yihui. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+<div id="ref-xie2015">
+<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="measurement-process-characterization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-explore.Rmd",
+"text": "Edit"
+},
+"download": ["eda.pdf", "eda.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
