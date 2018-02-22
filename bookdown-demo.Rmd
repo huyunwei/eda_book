@@ -1,0 +1,847 @@
+--- 
+title: "NIST/SEMATECH e-Handbook of Statistical Methods"
+author: "NIST"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+# Motivation {-}
+This is a book redering the [NISTNIST/SEMATECH e-Handbook of Statistical Methods](http://www.itl.nist.gov/div898/handbook/)  in *Markdown* and *tidyverse*. 
+
+The **bookdown** package can be installed from CRAN or Github:
+
+```{r eval=FALSE}
+install.packages("bookdown")
+# or the development version
+# devtools::install_github("rstudio/bookdown")
+```
+
+Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
+
+To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+<!--chapter:end:index.Rmd-->
+
+```{r setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE, rows.print=25)
+```
+
+# Exploratory Data Analysis 
+## EDA Introduction 
+
+### What is EDA?
+#### Approach	
+Exploratory Data Analysis (EDA) is an approach/philosophy for data analysis that employs a variety of techniques (mostly graphical) to
+
+- maximize insight into a data set;
+- uncover underlying structure;
+- extract important variables;
+- detect outliers and anomalies;
+- test underlying assumptions;
+- develop parsimonious models; and
+- determine optimal factor settings.
+
+Focus	The EDA approach is precisely that--an approach--not a set of techniques, but an attitude/philosophy about how a data analysis should be carried out.
+
+#### Philosophy	
+EDA is not identical to statistical graphics although the two terms are used almost interchangeably. Statistical graphics is a collection of techniques--all graphically based and all focusing on one data characterization aspect. EDA encompasses a larger venue; EDA is an approach to data analysis that postpones the usual assumptions about what kind of model the data follow with the more direct approach of allowing the data itself to reveal its underlying structure and model. EDA is not a mere collection of techniques; EDA is a philosophy as to how we dissect a data set; what we look for; how we look; and how we interpret. It is true that EDA heavily uses the collection of techniques that we call "statistical graphics", but it is not identical to statistical graphics per se.
+
+#### History	
+The seminal work in EDA is Exploratory Data Analysis, Tukey, (1977). Over the years it has benefitted from other noteworthy publications such as Data Analysis and Regression, Mosteller and Tukey (1977), Interactive Data Analysis, Hoaglin (1977), The ABC's of EDA, Velleman and Hoaglin (1981) and has gained a large following as "the" way to analyze a data set.
+
+#### Techniques	
+Most EDA techniques are graphical in nature with a few quantitative techniques. The reason for the heavy reliance on graphics is that by its very nature the main role of EDA is to open-mindedly explore, and graphics gives the analysts unparalleled power to do so, enticing the data to reveal its structural secrets, and being always ready to gain some new, often unsuspected, insight into the data. In combination with the natural pattern-recognition capabilities that we all possess, graphics provides, of course, unparalleled power to carry this out.
+The particular graphical techniques employed in EDA are often quite simple, consisting of various techniques of:
+
+- Plotting the raw data (such as data traces, histograms, bihistograms, probability plots, lag plots, block plots, and Youden plots.
+- Plotting simple statistics such as mean plots, standard deviation plots, box plots, and main effects plots of the raw data.
+- Positioning such plots so as to maximize our natural pattern-recognition abilities, such as using multiple plots per page.
+
+### EDA versus Classical and Bayesian
+How Does Exploratory Data Analysis differ from Classical Data Analysis?
+
+#### Data Analysis Approaches	
+EDA is a data analysis approach. What other data analysis approaches exist and how does EDA differ from these other approaches? Three popular data analysis approaches are:
+
+- Classical
+- Exploratory (EDA)
+- Bayesian
+
+#### Paradigms for Analysis Techniques	
+These three approaches are similar in that they all start with a general science/engineering problem and all yield science/engineering conclusions. The difference is the sequence and focus of the intermediate steps.
+
+- For classical analysis, the sequence is
+  Problem => Data => Model => Analysis => Conclusions
+- For EDA, the sequence is
+  Problem => Data => Analysis => Model => Conclusions
+- For Bayesian, the sequence is
+  Problem => Data => Model => Prior Distribution => Analysis => Conclusions
+
+#### Method of dealing with underlying model for the data distinguishes the 3 approaches	
+Thus for classical analysis, the data collection is followed by the imposition of a model (normality, linearity, etc.) and the analysis, estimation, and testing that follows are focused on the parameters of that model. For EDA, the data collection is not followed by a model imposition; rather it is followed immediately by analysis with a goal of inferring what model would be appropriate. Finally, for a Bayesian analysis, the analyst attempts to incorporate scientific/engineering knowledge/expertise into the analysis by imposing a data-independent distribution on the parameters of the selected model; the analysis thus consists of formally combining both the prior distribution on the parameters and the collected data to jointly make inferences and/or test assumptions about the model parameters.
+In the real world, data analysts freely mix elements of all of the above three approaches (and other approaches). The above distinctions were made to emphasize the major differences among the three approaches.
+
+#### Further discussion of the distinction between the classical and EDA approaches	
+Focusing on EDA versus classical, these two approaches differ as follows:
+
+Approacches|Classicial                      | EDA
+-----------|--------------------------------|--------------------------------
+Models     |The classical approach imposes models (both deterministic and probabilistic) on the data. Deterministic models include, for example, regression models and analysis of variance (ANOVA) models. The most common probabilistic model assumes that the errors about the deterministic model are normally distributed--this assumption affects the validity of the ANOVA F tests.|The Exploratory Data Analysis approach does not impose deterministic or probabilistic models on the data. On the contrary, the EDA approach allows the data to suggest admissible models that best fit the data.
+Focus      |The two approaches differ substantially in focus. For classical analysis, the focus is on the model--estimating parameters of the model and generating predicted values from the model.|For exploratory data analysis, the focus is on the data--its structure, outliers, and models suggested by the data.
+Techniques |Classical techniques are generally quantitative in nature. They include ANOVA, t tests, chi-squared tests, and F tests.|Exploratory	EDA techniques are generally graphical. They include scatter plots, character plots, box plots, histograms, bihistograms, probability plots, residual plots, and mean plots.
+Rigor    |Classical techniques serve as the probabilistic foundation of science and engineering; the most important characteristic of classical techniques is that they are rigorous, formal, and "objective".|EDA techniques do not share in that rigor or formality. EDA techniques make up for that lack of rigor by being very suggestive, indicative, and insightful about what the appropriate model should be. <br/>EDA techniques are subjective and depend on interpretation which may differ from analyst to analyst, although experienced analysts commonly arrive at identical conclusions.
+Data Treatment|Classical estimation techniques have the characteristic of taking all of the data and mapping the data into a few numbers ("estimates"). This is both a virtue and a vice. The virtue is that these few numbers focus on important characteristics (location, variation, etc.) of the population. The vice is that concentrating on these few characteristics can filter out other characteristics (skewness, tail length, autocorrelation, etc.) of the same population. In this sense there is a loss of information due to this "filtering" process.|The EDA approach, on the other hand, often makes use of (and shows) all of the available data. In this sense there is no corresponding loss of information.
+Assumptions|The "good news" of the classical approach is that tests based on classical techniques are usually very sensitive--that is, if a true shift in location, say, has occurred, such tests frequently have the power to detect such a shift and to conclude that such a shift is "statistically significant". The "bad news" is that classical tests depend on underlying assumptions (e.g., normality), and hence the validity of the test conclusions becomes dependent on the validity of the underlying assumptions. Worse yet, the exact underlying assumptions may be unknown to the analyst, or if known, untested. Thus the validity of the scientific conclusions becomes intrinsically linked to the validity of the underlying assumptions. In practice, if such assumptions are unknown or untested, the validity of the scientific conclusions becomes suspect.|Many EDA techniques make little or no assumptions--they present and show the data--all of the data--as is, with fewer encumbering assumptions.
+
+### EDA vs. Summary
+How Does Exploratory Data Analysis Differ from Summary Analysis?
+
+#### Summary	
+A summary analysis is simply a numeric reduction of a historical data set. It is quite passive. Its focus is in the past. Quite commonly, its purpose is to simply arrive at a few key statistics (for example, mean and standard deviation) which may then either replace the data set or be added to the data set in the form of a summary table.
+
+#### Exploratory	
+In contrast, EDA has as its broadest goal the desire to gain insight into the engineering/scientific process behind the data. Whereas summary statistics are passive and historical, EDA is active and futuristic. In an attempt to "understand" the process and improve it in the future, EDA uses the data as a "window" to peer into the heart of the process that generated the data. There is an archival role in the research and manufacturing world for summary statistics, but there is an enormously larger role for the EDA approach.
+
+### What are the EDA Goals?
+
+#### Primary and Secondary Goals	
+The primary goal of EDA is to maximize the analyst's insight into a data set and into the underlying structure of a data set, while providing all of the specific items that an analyst would want to extract from a data set, such as:
+
+- a good-fitting, parsimonious model
+- a list of outliers
+- a sense of robustness of conclusions
+- estimates for parameters
+- uncertainties for those estimates
+- a ranked list of important factors
+- conclusions as to whether individual factors are statistically significant
+- optimal settings
+
+#### Insight into the Data	
+Insight implies detecting and uncovering underlying structure in the data. Such underlying structure may not be encapsulated in the list of items above; such items serve as the specific targets of an analysis, but the real insight and "feel" for a data set comes as the analyst judiciously probes and explores the various subtleties of the data. The "feel" for the data comes almost exclusively from the application of various graphical techniques, the collection of which serves as the window into the essence of the data. Graphics are irreplaceable--there are no quantitative analogues that will give the same insight as well-chosen graphics.
+To get a "feel" for the data, it is not enough for the analyst to know what is in the data; the analyst also must know what is not in the data, and the only way to do that is to draw on our own human pattern-recognition and comparative abilities in the context of a series of judicious graphical techniques applied to the data.
+
+### The Role of Graphics
+
+#### Quantitative/Graphical	
+Statistics and data analysis procedures can broadly be split into two parts:
+
+- quantitative
+- graphical
+
+##### Quantitative	
+Quantitative techniques are the set of statistical procedures that yield numeric or tabular output. Examples of quantitative techniques include:
+
+- hypothesis testing
+- analysis of variance
+- point estimates and confidence intervals
+- least squares regression
+These and similar techniques are all valuable and are mainstream in terms of classical analysis.
+Graphical	On the other hand, there is a large collection of statistical tools that we generally refer to as graphical techniques. These include:
+
+- scatter plots
+- histograms
+- probability plots
+- residual plots
+- box plots
+- block plots
+
+#### EDA Approach Relies Heavily on Graphical Techniques	
+The EDA approach relies heavily on these and similar graphical techniques. Graphical procedures are not just tools that we could use in an EDA context, they are tools that we must use. Such graphical tools are the shortest path to gaining insight into a data set in terms of
+
+- testing assumptions
+- model selection
+- model validation
+- estimator selection
+- relationship identification
+- factor effect determination
+- outlier detection
+
+If one is not using statistical graphics, then one is forfeiting insight into one or more aspects of the underlying structure of the data.
+
+### An EDA/Graphics Example
+
+#### Anscombe Example	
+A simple, classic (Anscombe) example of the central role that graphics play in terms of providing insight into a data set starts with the following data set:
+Data	
+  X              Y
+10.00           8.04
+ 8.00           6.95
+13.00           7.58
+ 9.00           8.81
+11.00           8.33
+14.00           9.96
+ 6.00           7.24
+ 4.00           4.26
+12.00          10.84
+ 7.00           4.82
+ 5.00           5.68
+```{r}
+print(anscombe[c("x1","y1")])
+```
+
+#### Summary Statistics	
+If the goal of the analysis is to compute summary statistics plus determine the best linear fit for Y as a function of X, the results might be given as:
+> N = 11
+> Mean of X = 9.0
+> Mean of Y = 7.5
+> Intercept = 3
+> Slope = 0.5
+> Residual standard deviation = 1.237
+> Correlation = 0.816
+
+```{r}
+print(skimr::skim(anscombe[c("x1", "y1")]))
+print(summary(lm(y1~x1, data = anscombe)))
+```
+The above quantitative analysis, although valuable, gives us only limited insight into the data.
+
+####Scatter Plot	
+
+n contrast, the following simple scatter plot of the data
+
+
+```{r}
+ggplot(anscombe, aes(x1, y1)) + geom_point() + geom_smooth(method = "lm")
+```
+
+A scatter plot of the Anscombe data suggests the following:
+
+- The data set "behaves like" a linear curve with some scatter;
+- there is no justification for a more complicated model (e.g., quadratic);
+- there are no outliers;
+- the vertical spread of the data appears to be of equal height irrespective of the X-value; this indicates that the data are equally-precise throughout and so a "regular" (that is, equi-weighted) fit is appropriate.
+
+#### Three Additional Data Sets	
+This kind of characterization for the data serves as the core for getting insight/feel for the data. Such insight/feel does not come from the quantitative statistics; on the contrary, calculations of quantitative statistics such as intercept and slope should be subsequent to the characterization and will make sense only if the characterization is true. To illustrate the loss of information that results when the graphics insight step is skipped, consider the following three data sets [Anscombe data sets 2, 3, and 4]:
+ X2     Y2       X3     Y3       X4     Y4
+10.00   9.14    10.00   7.46     8.00   6.58
+ 8.00   8.14     8.00   6.77     8.00   5.76
+13.00   8.74    13.00  12.74     8.00   7.71
+ 9.00   8.77     9.00   7.11     8.00   8.84
+11.00   9.26    11.00   7.81     8.00   8.47
+14.00   8.10    14.00   8.84     8.00   7.04
+ 6.00   6.13     6.00   6.08     8.00   5.25
+ 4.00   3.10     4.00   5.39    19.00  12.50
+12.00   9.13    12.00   8.15     8.00   5.56
+ 7.00   7.26     7.00   6.42     8.00   7.91
+ 5.00   4.74     5.00   5.73     8.00   6.89
+ 
+```{r}
+print(skimr::skim(anscombe[c("x2", "y2", "x3", "y3", "x4", "y4")]))
+print(summary(lm(y1~x1, data = anscombe)))
+
+print(summary(lm(y1~x1, data = anscombe)))
+
+print(summary(lm(y1~x1, data = anscombe)))
+
+```
+ 
+
+Quantitative Statistics for Data Set 2	A quantitative analysis on data set 2 yields
+
+>- N = 11
+- Mean of X = 9.0
+- Mean of Y = 7.5
+- Intercept = 3
+- Slope = 0.5
+- Residual standard deviation = 1.237
+- Correlation = 0.816
+>
+
+which is identical to the analysis for data set 1. One might naively assume that the two data sets are "equivalent" since that is what the statistics tell us; but what do the statistics not tell us?
+Quantitative Statistics for Data Sets 3 and 4	Remarkably, a quantitative analysis on data sets 3 and 4 also yields
+
+> - N = 11
+- Mean of X = 9.0
+- Mean of Y = 7.5
+- Intercept = 3
+- Slope = 0.5
+- Residual standard deviation = 1.236
+- Correlation = 0.816 (0.817 for data set 4)
+>
+
+which implies that in some quantitative sense, all four of the data sets are "equivalent". In fact, the four data sets are far from "equivalent" and a scatter plot of each data set, which would be step 1 of any EDA approach, would tell us that immediately.
+
+#### Scatter Plots	
+4 scatter plots that exhibit different characteristcs
+```{r}
+# add scatter plots here
+library(gridExtra)
+p1 = ggplot(anscombe, aes(x1, y1)) + geom_point()  +
+  geom_smooth(method='lm') + xlim(4,20) + ylim(4,13)
+p2 = ggplot(anscombe, aes(x2, y2)) + geom_point()  +
+  geom_smooth(method='lm') + xlim(4,20) + ylim(4,13)
+p3 = ggplot(anscombe, aes(x3, y3)) + geom_point()  +
+  geom_smooth(method='lm') + xlim(4,20) + ylim(4,13)
+p4 = ggplot(anscombe, aes(x4, y4)) + geom_point()  +
+  geom_smooth(method='lm')+ xlim(4,20) + ylim(4,13)
+ 
+ 
+gridExtra::grid.arrange(p1, p2, p3, p4, ncol = 2)
+```
+
+Interpretation of Scatter Plots	Conclusions from the scatter plots are:
+
+- data set 1 is clearly linear with some scatter.
+- data set 2 is clearly quadratic.
+- data set 3 clearly has an outlier.
+- data set 4 is obviously the victim of a poor experimental design with a single point far removed from the bulk of the data "wagging the dog".
+
+Importance of Exploratory Analysis	These points are exactly the substance that provide and define "insight" and "feel" for a data set. They are the goals and the fruits of an open exploratory data analysis (EDA) approach to the data. Quantitative statistics are not wrong per se, but they are incomplete. They are incomplete because they are numeric summaries which in the summarization operation do a good job of focusing on a particular aspect of the data (e.g., location, intercept, slope, degree of relatedness, etc.) by judiciously reducing the data to a few numbers. Doing so also filters the data, necessarily omitting and screening out other sometimes crucial information in the focusing operation. Quantitative statistics focus but also filter; and filtering is exactly what makes the quantitative approach incomplete at best and misleading at worst.
+The estimated intercepts (= 3) and slopes (= 0.5) for data sets 2, 3, and 4 are misleading because the estimation is done in the context of an assumed linear model and that linearity assumption is the fatal flaw in this analysis.
+
+The EDA approach of deliberately postponing the model selection until further along in the analysis has many rewards, not the least of which is the ultimate convergence to a much-improved model and the formulation of valid and supportable scientific and engineering conclusions.
+
+### General Problem Categories
+The following table is a convenient way to classify EDA problems.
+
+#### Univariate and Control
+
+Classification|Univariate                               |Control
+--------------|-----------------------------------------|-----------------------------------------
+Data          |A single column of numbers, Y. |A single column of numbers, Y.
+Model         |y = constant + error           |y = constant + error
+Output        |- A number (the estimated constant in the model).<br/>- An estimate of uncertainty for the constant.<br/>- An estimate of the distribution for the error.  |A "yes" or "no" to the question "Is the system out of control?"
+Techniques    |4-Plot<br/>Probability Plot<br/>PPCC Plot |Control Charts
+
+#### Comparative and Screening
+
+Classification|Comparative                              |Screening
+--------------|-----------------------------------------|-----------------------------------------
+Data          |A single response variable and k independent variables (Y, X~1~, X~2~, ... , X~k~), primary focus is on one (the primary factor) of these independent variables. |A single response variable and k independent variables (Y, X~1~, X~2~, ... , X~k~).
+Model         |y = f(x~1~, x~2~, ..., x~k~) + error |y = f(x~1~, x~2~, ..., x~k~) + error
+Output        |A "yes" or "no" to the question "Is the primary factor significant?".|A ranked list (from most important to least important) of factors.<br/>Best settings for the factors.<br/>A good model/prediction equation relating Y to the factors.
+Techniques    |Block Plot<br/>Scatter Plot<br/>Box Plot|Block Plot<br/>Probability Plot<br/>Bihistogram
+
+#### Optimization and Regression
+
+Classification|Optimizatio                              |Regression
+--------------|-----------------------------------------|-----------------------------------------
+Data          |A single response variable and k independent variables (Y, X~1~, X~2~, ... , X~k~). |A single response variable and k independent variables (Y, X~1~, X~2~, ... , X~k~)<br/>The independent variables can be continuous.
+Model         |y = f(x~1~, x~2~, ..., x~k~) + error |y = f(x~1~, x~2~, ..., x~k~) + error
+Output        |Best settings for the factor variables.|A good model/prediction equation relating Y to the factors.
+Techniques    |Block Plot<br/>Least Squares Fitting<br/>Contour Plot|Least Squares Fitting<br/>Scatter Plot<br/>6-Plot
+
+#### Time Series and Multivariate
+Classification|Optimizatio                              |Regression
+--------------|-----------------------------------------|-----------------------------------------
+Data          |A column of time dependent numbers, Y. In addition, time is an indpendent variable. The time variable can be either explicit or implied. If the data are not equi-spaced, the time variable should be explicitly provided.|k factor variables (X1, X2, ... , Xk).
+Model         |y~t~ = f(t) + error<br/>The model can be either a time domain based or frequency domain based.|The model is not explicit.
+Output        |A good model/prediction equation relating Y to previous values of Y.|Identify underlying correlation structure in the data.
+Techniques    |Autocorrelation Plot<br/>Spectrum<br/>Complex Demodulation Amplitude Plot<br/>Complex Demodulation Phase Plot<br>ARIMA Models|Star Plot<br/>Scatter Plot Matrix<br/>Conditioning Plot<br/>Profile Plot<br/>Principal Components<br/>Clustering<br/>Discrimination/Classification
+
+## EDA Assumptions
+
+### Summary	
+
+The gamut of scientific and engineering experimentation is virtually limitless. In this sea of diversity is there any common basis that allows the analyst to systematically and validly arrive at supportable, repeatable research conclusions?
+Fortunately, there is such a basis and it is rooted in the fact that every measurement process, however complicated, has certain underlying assumptions. This section deals with what those assumptions are, why they are important, how to go about testing them, and what the consequences are if the assumptions do not hold.
+
+### Table of Contents for Section 2	
+
+- Underlying Assumptions
+- Importance
+- Testing Assumptions
+- Importance of Plots
+- Consequences
+
+### Underlying Assumptions
+#### Assumptions Underlying a Measurement Process	
+There are four assumptions that typically underlie all measurement processes; namely, that the data from the process at hand "behave like":
+
+- random drawings;
+- from a fixed distribution;
+- with the distribution having fixed location; and
+- with the distribution having fixed variation.
+
+#### Univariate or Single Response Variable	
+The "fixed location" referred to in item 3 above differs for different problem types. The simplest problem type is univariate; that is, a single variable. For the univariate problem, the general model
+> response = deterministic component + random component
+becomes
+> response = constant + error
+
+#### Assumptions for Univariate Model	
+For this case, the "fixed location" is simply the unknown constant. We can thus imagine the process at hand to be operating under constant conditions that produce a single column of data with the properties that
+
+- the data are uncorrelated with one another;
+- the random component has a fixed distribution;
+- the deterministic component consists of only a constant; and
+- the random component has fixed variation.
+
+#### Extrapolation to a Function of Many Variables	
+The universal power and importance of the univariate model is that it can easily be extended to the more general case where the deterministic component is not just a constant, but is in fact a function of many variables, and the engineering objective is to characterize and model the function.
+
+#### Residuals Will Behave According to Univariate Assumptions	
+The key point is that regardless of how many factors there are, and regardless of how complicated the function is, if the engineer succeeds in choosing a good model, then the differences (residuals) between the raw response data and the predicted values from the fitted model should themselves behave like a univariate process. Furthermore, the residuals from this univariate process fit will behave like:
+random drawings;
+from a fixed distribution;
+with fixed location (namely, 0 in this case); and
+with fixed variation.
+Validation of Model	Thus if the residuals from the fitted model do in fact behave like the ideal, then testing of underlying assumptions becomes a tool for the validation and quality of fit of the chosen model. On the other hand, if the residuals from the chosen fitted model violate one or more of the above univariate assumptions, then the chosen fitted model is inadequate and an opportunity exists for arriving at an improved model.
+
+### Importance
+#### Predictability and Statistical Control	
+Predictability is an all-important goal in science and engineering. If the four underlying assumptions hold, then we have achieved probabilistic predictability--the ability to make probability statements not only about the process in the past, but also about the process in the future. In short, such processes are said to be "in statistical control".
+
+#### Validity of Engineering 
+Conclusions	Moreover, if the four assumptions are valid, then the process is amenable to the generation of valid scientific and engineering conclusions. If the four assumptions are not valid, then the process is drifting (with respect to location, variation, or distribution), unpredictable, and out of control. A simple characterization of such processes by a location estimate, a variation estimate, or a distribution "estimate" inevitably leads to engineering conclusions that are not valid, are not supportable (scientifically or legally), and which are not repeatable in the laboratory.
+
+### Techniques for Testing Assumptions
+#### Testing Underlying Assumptions Helps Assure the Validity of Scientific and Engineering Conclusions	
+Because the validity of the final scientific/engineering conclusions is inextricably linked to the validity of the underlying univariate assumptions, it naturally follows that there is a real necessity that each and every one of the above four assumptions be routinely tested.
+
+Four Techniques to Test Underlying Assumptions	
+The following EDA techniques are simple, efficient, and powerful for the routine testing of underlying assumptions:
+
+1. run sequence plot (Yi versus i)
+1. lag plot (Yi versus Yi-1)
+1. histogram (counts versus subgroups of Y)
+1. normal probability plot (ordered Y versus theoretical ordered Y)
+
+#### Plot on a Single Page for a Quick Characterization of the Data	
+The four EDA plots can be juxtaposed for a quick look at the characteristics of the data. The plots below are ordered as follows:
+
+- Run sequence plot - upper left
+- Lag plot - upper right
+- Histogram - lower left
+- Normal probability plot - lower right
+
+#### Sample Plot: Assumptions Hold	
+A 4-Plot which shows fixed location, fixed variation, fixed normal distribution, and no outliers
+```{r}
+#insert 4-plot
+library(tidyverse)
+four_plot <- function (y){
+  # take in a numeric verctor for univariate analysis
+  if(! is.numeric(y)) stop("Requires a numeric vector")
+  da <- tibble( idx = 1:length(y), y )
+  p1 = ggplot(da, aes(x=idx, y=y)) + geom_line() # run sequenc
+  p2 = ggplot(da, aes(x = y, y = c(tail(y, -1),0))) + geom_point() # lag plot
+  p3 = ggplot(da, aes(x=y)) + geom_histogram() #histogram
+  p4 <- ggplot(da, aes(sample=y)) + geom_qq() # qqplot
+  gridExtra::grid.arrange(p1, p2, p3, p4, ncol = 2)
+}
+
+four_plot(rnorm(500))
+
+```
+This 4-plot of 500 normal random numbers reveals a process that has fixed location, fixed variation, is random, apparently has a fixed approximately normal distribution, and has no outliers.
+
+#### Sample Plot: Assumptions Do Not Hold	
+If one or more of the four underlying assumptions do not hold, then it will show up in the various plots as demonstrated in the following example.
+
+```{r}
+LEW <- read_csv("~/Dropbox/github/R_Codes_and_Data/Rdata/LEW.DAT", 
+     col_names = FALSE, col_types = cols(X1 = col_double()), skip = 25)
+names(LEW) <- c("deflection")
+four_plot(LEW$deflection)
+
+```
+
+This 4-plot reveals a process that has fixed location, fixed variation, is non-random (oscillatory), has a non-normal, U-shaped distribution, and has several outliers.
+
+### Interpretation of 4-Plot
+#### Interpretation of EDA Plots: Flat and Equi-Banded, Random, Bell-Shaped, and Linear	
+The four EDA plots discussed on the previous page are used to test the underlying assumptions:
+
+**- Fixed Location:**
+If the fixed location assumption holds, then the run sequence plot will be flat and non-drifting.
+
+**- Fixed Variation:**
+If the fixed variation assumption holds, then the vertical spread in the run sequence plot will be the approximately the same over the entire horizontal axis.
+
+**- Randomness:**
+If the randomness assumption holds, then the lag plot will be structureless and random.
+
+**- Fixed Distribution:**
+If the fixed distribution assumption holds, in particular if the fixed normal distribution holds, then
+
+1. the histogram will be bell-shaped, and
+1. the normal probability plot will be linear.
+
+#### Plots Utilized to Test the Assumptions	
+Conversely, the underlying assumptions are tested using the EDA plots:
+
+**- Run Sequence Plot:**
+If the run sequence plot is flat and non-drifting, the fixed-location assumption holds. If the run sequence plot has a vertical spread that is about the same over the entire plot, then the fixed-variation assumption holds.
+
+**- Lag Plot:**
+If the lag plot is structureless, then the randomness assumption holds.
+
+**- Histogram:**
+If the histogram is bell-shaped, the underlying distribution is symmetric and perhaps approximately normal.
+
+**- Normal Probability Plot:**
+If the normal probability plot is linear, the underlying distribution is approximately normal.
+
+If all four of the assumptions hold, then the process is said definitionally to be "in statistical control".
+
+-----------
+
+
+You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+
+Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+
+```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
+par(mar = c(4, 4, .1, .1))
+plot(pressure, type = 'b', pch = 19)
+```
+
+Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(iris, 20), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
+```
+
+You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+
+<!--chapter:end:01-explore.Rmd-->
+
+# Measurement Process Characterization
+## Characterization
+The primary goal of this section is to lay the groundwork for understanding the measurement process in terms of the errors that affect the process.
+
+What are the issues for characterization?
+
+- Purpose
+- Reference base
+- Bias and Accuracy
+- Variability
+- What is a check standard?
+
+Assumptions
+- Data collection
+- Analysis
+
+<!--chapter:end:02-measure.Rmd-->
+
+# Methods
+
+We describe our methods in this chapter.
+
+<!--chapter:end:03-method.Rmd-->
+
+# Applications
+
+Some _significant_ applications are demonstrated in this chapter.
+
+## Example one
+
+## Example two
+
+<!--chapter:end:04-application.Rmd-->
+
+# Final Words
+
+We have finished a nice book.
+
+<!--chapter:end:05-summary.Rmd-->
+
+`r if (knitr:::is_html_output()) '
+# Monitor
+'`
+
+<!--chapter:end:06-references.Rmd-->
+
+`r if (knitr:::is_html_output()) '
+# Compare
+'`
+
+<!--chapter:end:07-compare.Rmd-->
+
+`r if (knitr:::is_html_output()) '
+# Reliability
+'`
+## Introduction
+This section introduces the terminology and models that will be used to describe and quantify product reliability. The terminology, probability distributions and models used for reliability analysis differ in many cases from those used in other statistical applications.
+
+### Why is the assessment and control of product reliability important?
+>We depend on, demand, and expect reliable products	
+
+In today's technological world nearly everyone depends upon the continued functioning of a wide array of complex machinery and equipment for their everyday health, safety, mobility and economic welfare. We expect our cars, computers, electrical appliances, lights, televisions, etc. to function whenever we need them - day after day, year after year. When they fail the results can be catastrophic: injury, loss of life and/or costly lawsuits can occur. More often, repeated failure leads to annoyance, inconvenience and a lasting customer dissatisfaction that can play havoc with the responsible company's marketplace position. 
+
+>Shipping unreliable products can destroy a company's reputation	
+
+It takes a long time for a company to build up a reputation for reliability, and only a short time to be branded as "unreliable" after shipping a flawed product. Continual assessment of new product reliability and ongoing control of the reliability of everything shipped are critical necessities in today's competitive business arena. 
+
+#### Quality versus reliability
+
+>Reliability is "quality changing over time" 	
+
+The everyday usage term "quality of a product" is loosely taken to mean its inherent degree of excellence. In industry, this is made more precise by defining quality to be "conformance to requirements at the start of use". Assuming the product specifications adequately capture customer requirements, the quality level can now be precisely measured by the fraction of units shipped that meet specifications.
+
+>A motion picture instead of a snapshot	
+
+But how many of these units still meet specifications after a week of operation? Or after a month, or at the end of a one year warranty period? That is where "reliability" comes in. Quality is a snapshot at the start of life and reliability is a motion picture of the day-by-day operation. Time zero defects are manufacturing mistakes that escaped final test. The additional defects that appear over time are "reliability defects" or reliability fallout.
+
+> Life distributions model fraction fallout over time	
+
+The quality level might be described by a single fraction defective. To describe reliability fallout a probability model that describes the fraction fallout over time is needed. This is known as the life distribution model.
+
+#### Competitive driving factors
+> Reliability is a major economic factor in determining a product's success	
+
+Accurate prediction and control of reliability plays an important role in the profitability of a product. Service costs for products within the warranty period or under a service contract are a major expense and a significant pricing factor. Proper spare part stocking and support personnel hiring and training also depend upon good reliability fallout predictions. On the other hand, missing reliability targets may invoke contractual penalties and cost future business. 
+Companies that can economically design and market products that meet their customers' reliability expectations have a strong competitive advantage in today's marketplace. 
+
+#### Safety and health considerations
+>Some failures have serious social consequences and this should be taken into account when planning reliability studies	
+
+Sometimes equipment failure can have a major impact on human safety and/or health. Automobiles, planes, life support equipment, and power generating plants are a few examples. 
+From the point of view of "assessing product reliability", we treat these kinds of catastrophic failures no differently from the failure that occurs when a key parameter measured on a manufacturing tool drifts slightly out of specification, calling for an unscheduled maintenance action. 
+
+It is up to the reliability engineer (and the relevant customer) to define what constitutes a failure in any reliability study. More resource (test time and test units) should be planned for when an incorrect reliability assessment could negatively impact safety and/or health.
+
+### What are the basic terms and models used for reliability evaluation?
+>Reliability methods and terminology began with 19th century insurance companies	
+
+Reliability theory developed apart from the mainstream of probability and statistics, and was used primarily as a tool to help nineteenth century maritime and life insurance companies compute profitable rates to charge their customers. Even today, the terms "failure rate" and "hazard rate" are often used interchangeably. 
+The following sections will define some of the concepts, terms, and models we need to describe, estimate and predict reliability.
+
+#### Repairable systems, non-repairable populations and lifetime distribution models
+>Life distribution models describe how non-repairable populations fail over time
+
+A repairable system is one which can be restored to satisfactory operation by any action, including parts replacements or changes to adjustable settings. When discussing the rate at which failures occur during system operation time (and are then repaired) we will define a Rate of Occurrence of Failure (ROCF) or "repair rate". It would be incorrect to talk about failure rates or hazard rates for repairable systems, as these terms apply only to the first failure times for a population of non repairable components.
+A non-repairable population is one for which individual items that fail are removed permanently from the population. While the system may be repaired by replacing failed units from either a similar or a different population, the members of the original population dwindle over time until all have eventually failed.
+
+We begin with models and definitions for non-repairable populations. Repair rates for repairable populations will be defined in a later section.
+
+The theoretical population models used to describe unit lifetimes are known as **Lifetime Distribution Models**. The population is generally considered to be all of the possible unit lifetimes for all of the units that could be manufactured based on a particular design and choice of materials and manufacturing process. A random sample of size *n* from this population is the collection of failure times observed for a randomly selected group of *n* units.
+
+>Any continuous PDF defined only for non-negative values can be a lifetime distribution model
+
+A lifetime distribution model can be any probability density function (or PDF) f(t) defined over the range of time from t=0,…,∞. The corresponding cumulative distribution function (or CDF) F(t) is a very useful function, as it gives the probability that a randomly selected unit will fail by time t. The figure below shows the relationship between f(t) and F(t) and gives three descriptions of F(t). 
+
+![PDF](http://www.itl.nist.gov/div898/handbook/apr/section1/gifs/f81212.gif)
+
+1. F(t) = the area under the PDF f(t) to the left of t.
+2. F(t) = the probability that a single randomly chosen new unit will fail by time t.
+3. F(t) = the proportion of the entire population that fails by time t.
+
+The figure above also shows a shaded area under $f(t)$ between the two times $t_1$ and $t_2$. This area is $[F(t2)−F(t1)]$ and represents the proportion of the population that fails between times $t_1$ and $t_2$ (or the probability that a brand new randomly chosen unit will survive to time $t_1$ but fail before time $t_2$).
+Note that the PDF $f(t)$ has only non-negative values and eventually either becomes 0 as t increases, or decreases towards 0. The CDF $F(t)$ is monotonically increasing and goes from 0 to 1 as t approaches infinity. In other words, the total area under the curve is always 1.
+
+>The Weibull model is a good example of a life distribution
+
+The 2-parameter Weibull distribution is an example of a popular $F(t)$. It has the CDF and PDF equations given by:
+$$F(t)= 1-e^{-(t/\alpha)^\gamma}$$
+$$f(t)=\frac{\gamma}{t} \left(\frac{t}{\alpha} \right)^\gamma e^{-(t/\alpha)^\gamma}$$
+where $\gamma$ is the "shape" parameter and $\alpha$ is a "scale" parameter called the characteristic life.
+Example: A company produces automotive fuel pumps that fail according to a Weibull life distribution model with shape parameter $\gamma=1.5$ and scale parameter 8,000 (time measured in use hours). If a typical pump is used 800 hours a year, what proportion are likely to fail within 5 years?
+
+Solution: The probability associated with the 800*5 quantile of a Weibull distribution with $\gamma=1.5$ and $\alpha=8000$ is `r pweibull(800*5, 1.5, 8000)`. Thus about `r paste0(as.character(round(pweibull(800*5, 1.5, 8000)*100, digits = 0)), "%")` of the pumps will fail in the first 5 years.
+
+
+
+
+Functions for computing PDF values and CDF values, are available in both Dataplot code and R code.
+```{r}
+print((paste("The probability associated with the 800*5 quantile of a Weibull distribution with gamma=1.5 and alpha=8000 is", as.character(pweibull(800*5, 1.5, 8000)))))
+print(paste("Thus about", paste0(as.character(round(pweibull(800*5, 1.5, 8000)*100, digits = 0)), "%"),  "of the pumps will fail in the first 5 years."))
+```
+
+#### Reliability or survival function
+>Survival is the complementary event to failure
+
+The Reliability Function $R(t)$, also known as the Survival Function $S(t)$, is defined by
+R(t)=S(t)=the probability a unit survives beyond time t.
+Since a unit either fails, or survives, and one of these two mutually exclusive alternatives must occur, we have
+$$R(t)=1−F(t)$$ $$F(t)=1−R(t)$$.
+
+>The reliability of the system is the product of the reliability functions of the components
+
+Calculations using R(t) often occur when building up from single components to subsystems with many components. For example, if one microprocessor comes from a population with reliability function $R_{m}(t)$ and two of them are used for the CPU in a system, then the system CPU has a reliability function given by $$R_{cpu}(t) = R_m^2(t)$$
+since both must survive in order for the system to survive. This building up to the system from the individual components will be discussed in detail when we look at the "Bottom-Up" method. The general rule is: to calculate the reliability of a system of independent components, multiply the reliability functions of all the components together.
+
+#### Failure (or hazard) rate
+
+>The failure rate is the rate at which the population survivors at any given instant are "falling over the cliff"
+
+The failure rate is defined for non repairable populations as the (instantaneous) rate of failure for the survivors to time t during the next instant of time. It is a rate per unit of time similar in meaning to reading a car speedometer at a particular instant and seeing 45 mph. The next instant the failure rate may change and the units that have already failed play no further role since only the survivors count. 
+The failure rate (or hazard rate) is denoted by h(t) and is calculated from
+$$h(t) = \frac{f(t)}{1 - F(t)} = \frac{f(t)}{R(t)} = \mbox{the instantaneous (conditional) failure rate.}$$
+The failure rate is sometimes called a "conditional failure rate" since the denominator $1−F(t)$ (i.e., the population survivors) converts the expression into a conditional rate, given survival past time t.
+Since $h(t)$ is also equal to the negative of the derivative of $ln[R(t)]$, we have the useful identity:
+$$F(t)=1-\mbox{exp}\left[-\int_0^t h(t)dt\right]$$
+If we let
+$$H(t) = \int_0^t h(t)dt$$
+
+be the Cumulative Hazard Function, we then have $F(t)=1−e^{H(t)}$. Two other useful identities that follow from these formulas are:
+$$h(t) = - \frac{d \mbox{ln} R(t)}{dt}$$
+$$H(t) = - \mbox{ln} R(t)$$
+
+It is also sometimes useful to define an average failure rate over any interval (T~1~,T~2~) that "averages" the failure rate over that interval. This rate, denoted by AFR(T~1~,T~2~), is a single number that can be used as a specification or target for the population failure rate over that interval. If T~1~ is 0, it is dropped from the expression. Thus, for example, AFR(40,000) would be the average failure rate for the population over the first 40,000 hours of operation. 
+
+The formulas for calculating *AFR* values are:
+$$AFR(T_2 - T_1) = \frac{\int_{T_1}^{T_2} h(t)dt}{T_2 - T_1} = \frac{H(T_2) - H(T_1)}{T_2 - T_1} = \frac{\mbox{ln}R(T_1) - \mbox{ln}R(T_2)}{T_2 - T_1}$$
+   
+and $$AFR(0,T) = AFR(T) = \frac{H(T)}{T} = \frac{-\mbox{ln} R(T)}{T}$$
+
+#### "Bathtub" curve
+>A plot of the failure rate over time for most products yields a curve that looks like a drawing of a bathtub
+
+If enough units from a given population are observed operating and failing over time, it is relatively easy to compute week-by-week (or month-by-month) estimates of the failure rate $h(t)$. For example, if $N_{12}$ units survive to start the 13th month of life and $r_{13}$ of them fail during the next month (or 720 hours) of life, then a simple empirical estimate of $h(t)$ averaged across the 13th month of life (or between 8640 hours and 9360 hours of age), is given by $(\frac{r_{13}} {N_{12}}⋅720)$. Similar estimates are discussed in detail in the section on Empirical Model Fitting. 
+
+Over many years, and across a wide variety of mechanical and electronic components and systems, people have calculated empirical population failure rates as units age over time and repeatedly obtained a graph such as shown below. Because of the shape of this failure rate curve, it has become widely known as the "Bathtub" curve. 
+
+The initial region that begins at time zero when a customer first begins to use the product is characterized by a high but rapidly decreasing failure rate. This region is known as the **Early Failure Period** (also referred to as **Infant Mortality Period**, from the actuarial origins of the first bathtub curve plots). This decreasing failure rate typically lasts several weeks to a few months. 
+
+Next, the failure rate levels off and remains roughly constant for (hopefully) the majority of the useful life of the product. This long period of a level failure rate is known as the **Intrinsic Failure Period** (also called the **Stable Failure Period**) and the constant failure rate level is called the **Intrinsic Failure Rate**. Note that most systems spend most of their lifetimes operating in this flat portion of the bathtub curve 
+
+Finally, if units from the population remain in use long enough, the failure rate begins to increase as materials wear out and degradation failures occur at an ever increasing rate. This is the **Wearout Failure Period**. 
+
+![Bathtub Curve](http://www.itl.nist.gov/div898/handbook/apr/section1/gifs/bathtub2.gif)
+
+NOTE: The Bathtub Curve also applies (based on much empirical evidence) to Repairable Systems. In this case, the vertical axis is the Repair Rate or the Rate of Occurrence of Failures (ROCOF). 
+
+#### Repair rate or ROCOF
+>Repair Rate models are based on counting the cumulative number of failures over time
+
+A different approach is used for modeling the rate of occurrence of failure incidences for a repairable system. In this chapter, these rates are called repair rates (not to be confused with the length of time for a repair, which is not discussed in this chapter). Time is measured by system power-on-hours from initial turn-on at time zero, to the end of system life. Failures occur as given system ages and the system is repaired to a state that may be the same as new, or better, or worse. The frequency of repairs may be increasing, decreasing, or staying at a roughly constant rate. 
+Let *N(t)* be a counting function that keeps track of the cumulative number of failures a given system has had from time zero to time t. *N(t)* is a step function that jumps up one every time a failure occurs and stays at the new level until the next failure. 
+
+Every system will have its own observed *N(t)* function over time. If we observed the *N(t)* curves for a large number of similar systems and "averaged" these curves, we would have an estimate of $M(t) = \mbox{the expected number (average number) of cumulative failures by time t for these systems}$.
+
+>>**The Repair Rate** (or **ROCOF**) is the mean rate of failures per unit time	
+
+The derivative of *M(t)*, denoted *m(t)*, is defined to be the Repair Rate or the **Rate Of Occurrence Of Failures at Time t**, or **ROCOF**.
+Models for *N(t)*, *M(t)*, and *m(t)* will be described in the section on Repair Rate Models[insert ].
+
+### What are some common difficulties with reliability data and how are they overcome?
+>The Paradox of Reliability Analysis: The more reliable a product is, the harder it is to get the failure data needed to "prove" it is reliable!
+
+There are two closely related problems that are typical with reliability data and not common with most other forms of statistical data. These are: 
+
+- [Censoring](insert)(when the observation period ends, not all units have failed - some are survivors)
+- [Lack of Failures](insert) (if there is too much censoring, even though a large number of units may be under observation, the information in the data is limited due to the lack of actual failures)
+
+These problems cause considerable practical difficulty when planning reliability assessment tests and analyzing failure data. Some solutions are discussed in the next two sections. Typically, the solutions involve making additional assumptions and using complicated models.
+
+#### Censoring
+>When not all units on test fail we have censored data
+
+Consider a situation in which we are reliability testing n (non-repairable) units taken randomly from a population. We are investigating the population to determine if its failure rate is acceptable. In the typical test scenario, we have a fixed time T to run the units to see if they survive or fail. The data obtained are called **Censored Type I data**.
+
+##### Censored Type I Data
+
+During the T hours of test we observe r failures (where r can be any number from 0 to n). The (exact) failure times are *t~1~,t~2~,…,t~r~*, and there are *(n−r)* units that survived the entire *T-hour* test without failing. Note that *T* is fixed in advance and r is random, since we don't know how many failures will occur until the test is run. Note also that we assume the exact times of failure are recorded when there are failures. 
+
+This type of censoring is also called "right censored" data since the times of failure to the right (i.e., larger than *T*) are missing.
+
+Another (much less common) way to test is to decide in advance that you want to see exactly r failure times and then test until they occur. For example, you might put 100 units on test and decide you want to see at least half of them fail. Then r=50, but T is unknown until the 50th failure occurs. This is called **Censored Type II data.**
+
+##### Censored Type II Data
+
+We observe *t~1~,t~2~,…,t~r~*, where *r* is specified in advance. The test ends at time *T=t~r~*, and *(n−r)* units have survived. Again we assume it is possible to observe the exact time of failure for failed units.
+
+Type II censoring has the significant advantage that you know in advance how many failure times your test will yield - this helps enormously when planning adequate tests. However, an open-ended random test time is generally impractical from a management point of view and this type of testing is rarely seen.
+
+>Sometimes we don't even know the exact time of failure
+
+##### Readout or Interval Data
+Sometimes exact times of failure are not known; only an interval of time in which the failure occurred is recorded. This kind of data is called Readout or Interval data and the situation is shown in the figure below:
+
+![Interval Data](http://www.itl.nist.gov/div898/handbook/apr/section1/gifs/multi.gif)
+
+##### Multicensored Data
+
+In the most general case, every unit observed yields exactly one of the following three types of information:
+
+- a run-time if the unit did not fail while under observation
+- an exact failure time
+- an interval of time during which the unit failed.
+
+The units may all have different run-times and/or readout intervals.
+
+>Many special methods have been developed to handle censored data
+
+##### How do we handle censored data?
+Many statistical methods can be used to fit models and estimate failure rates, even with censored data. In later sections we will discuss the Kaplan-Meier approach, Probability Plotting, Hazard Plotting, Graphical Estimation, and Maximum Likelihood Estimation.
+
+##### Separating out Failure Modes
+
+Note that when a data set consists of failure times that can be sorted into several different failure modes, it is possible (and often necessary) to analyze and model each mode separately. Consider all failures due to modes other than the one being analyzed as censoring times, with the censored run-time equal to the time it failed due to the different (independent) failure mode. This is discussed further in the competing risk section and later analysis sections.
+
+#### Lack of failures
+>Failure data is needed to accurately assess and improve reliability - this poses problems when testing highly reliable parts
+
+When fitting models and estimating failure rates from reliability data, the precision of the estimates (as measured by the width of the confidence intervals) tends to vary inversely with the square root of the number of failures observed - not the number of units on test or the length of the test. In other words, a test where 5 fail out of a total of 10 on test gives more information than a test with 1000 units but only 2 failures. 
+
+Since the number of failures r is critical, and not the sample size n on test, it becomes increasingly difficult to assess the failure rates of highly reliable components. Parts like memory chips, that in typical use have failure rates measured in parts per million per thousand hours, will have few or no failures when tested for reasonable time periods with affordable sample sizes. This gives little or no information for accomplishing the two primary purposes of reliability testing, namely: 
+
+- accurately assessing population failure rates
+- obtaining failure mode information to feedback for product improvement.
+
+>Testing at much higher than typical stresses can yield failures but models are then needed to relate these back to use stress
+
+**How can tests be designed to overcome an expected lack of failures?**
+The answer is to make failures occur by testing at much higher stresses than the units would normally see in their intended application. This creates a new problem: how can these failures at higher-than-normal stresses be related to what would be expected to happen over the course of many years at normal use stresses? The models that relate high stress reliability to normal use reliability are called [acceleration models](link).
+
+### What is "physical acceleration" and how do we model it?
+>When changing stress is equivalent to multiplying time to fail by a constant, we have true (physical) acceleration
+
+**Physical Acceleration** (sometimes called **True Acceleration** or just **Acceleration**) means that operating a unit at high stress (i.e., higher temperature or voltage or humidity or duty cycle, etc.) produces the same failures that would occur at typical-use stresses, except that they happen much quicker. 
+
+Failure may be due to mechanical fatigue, corrosion, chemical reaction, diffusion, migration, etc. These are the same causes of failure under normal stress; the time scale is simply different.
+
+>An Acceleration Factor is the constant multiplier between the two stress levels
+
+When there is true acceleration, changing stress is equivalent to transforming the time scale used to record when failures occur. The transformations commonly used are linear, which means that time-to-fail at high stress just has to be multiplied by a constant (the **acceleration factor**) to obtain the equivalent time-to-fail at use stress. 
+We use the following notation: 
+t~s~ = time-to-fail at stress	
+t~u~ = corresponding time-to-fail at use
+F~s~(t) = CDF at stress	
+F~u~(t) = CDF at use
+f~s~(t) = PDF at stress	
+f~u~(t) = PDF at use
+h~s~(t) = failure rate at stress	
+h~u~(t) = failure rate at use
+
+Then, an acceleration factor AF between stress and use means the following relationships hold: 
+
+|Linear Acceleration Relationships||
+------------------------|----------------------------------------
+Time-to-Fail            |$t_u~=AF\times t_s$
+Failure Probability	    |$F_u(t)=F_s(t/AF)$
+Reliability	            |$R_u(t)=R_s(t/AF)$
+PDF or Density Function	|$f_u(t)=\frac{1}{AF} f_s(\frac{t}{AF})$
+Failure Rate	          |$h_u(t)=\frac{1}{AF} h_s(\frac{t}{AF})$
+
+>Each failure mode has its own acceleration factor<br/>
+Failure data should be separated by failure mode when analyzed, if acceleration is relevant<br/>
+Probability plots of data from different stress cells have the same slope (if there is acceleration)
+
+**Note**: Acceleration requires that there be a stress dependent physical process causing change or degradation that leads to failure. In general, different failure modes will be affected differently by stress and have different acceleration factors. Therefore, it is unlikely that a single acceleration factor will apply to more than one failure mechanism. In general, different failure modes will be affected differently by stress and have different acceleration factors. Separate out different types of failure when analyzing failure data. 
+Also, a consequence of the linear acceleration relationships shown above (which follows directly from "true acceleration") is the following: 
+
+>The Shape Parameter for the key life distribution models (Weibull, Lognormal) does not change for units operating under different stresses. Probability plots of data from different stress cells will line up roughly parallel.
+
+These distributions and probability plotting will be discussed in later sections.
+
+<!--chapter:end:08-reliability.Rmd-->
+
+`r if (knitr:::is_html_output()) '
+# References {-}
+'`
+
+<!--chapter:end:09-references.Rmd-->
+

@@ -1,0 +1,477 @@
+```{r setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE, rows.print=25)
+```
+
+# Exploratory Data Analysis 
+## EDA Introduction 
+
+### What is EDA?
+#### Approach	
+Exploratory Data Analysis (EDA) is an approach/philosophy for data analysis that employs a variety of techniques (mostly graphical) to
+
+- maximize insight into a data set;
+- uncover underlying structure;
+- extract important variables;
+- detect outliers and anomalies;
+- test underlying assumptions;
+- develop parsimonious models; and
+- determine optimal factor settings.
+
+Focus	The EDA approach is precisely that--an approach--not a set of techniques, but an attitude/philosophy about how a data analysis should be carried out.
+
+#### Philosophy	
+EDA is not identical to statistical graphics although the two terms are used almost interchangeably. Statistical graphics is a collection of techniques--all graphically based and all focusing on one data characterization aspect. EDA encompasses a larger venue; EDA is an approach to data analysis that postpones the usual assumptions about what kind of model the data follow with the more direct approach of allowing the data itself to reveal its underlying structure and model. EDA is not a mere collection of techniques; EDA is a philosophy as to how we dissect a data set; what we look for; how we look; and how we interpret. It is true that EDA heavily uses the collection of techniques that we call "statistical graphics", but it is not identical to statistical graphics per se.
+
+#### History	
+The seminal work in EDA is Exploratory Data Analysis, Tukey, (1977). Over the years it has benefitted from other noteworthy publications such as Data Analysis and Regression, Mosteller and Tukey (1977), Interactive Data Analysis, Hoaglin (1977), The ABC's of EDA, Velleman and Hoaglin (1981) and has gained a large following as "the" way to analyze a data set.
+
+#### Techniques	
+Most EDA techniques are graphical in nature with a few quantitative techniques. The reason for the heavy reliance on graphics is that by its very nature the main role of EDA is to open-mindedly explore, and graphics gives the analysts unparalleled power to do so, enticing the data to reveal its structural secrets, and being always ready to gain some new, often unsuspected, insight into the data. In combination with the natural pattern-recognition capabilities that we all possess, graphics provides, of course, unparalleled power to carry this out.
+The particular graphical techniques employed in EDA are often quite simple, consisting of various techniques of:
+
+- Plotting the raw data (such as data traces, histograms, bihistograms, probability plots, lag plots, block plots, and Youden plots.
+- Plotting simple statistics such as mean plots, standard deviation plots, box plots, and main effects plots of the raw data.
+- Positioning such plots so as to maximize our natural pattern-recognition abilities, such as using multiple plots per page.
+
+### EDA versus Classical and Bayesian
+How Does Exploratory Data Analysis differ from Classical Data Analysis?
+
+#### Data Analysis Approaches	
+EDA is a data analysis approach. What other data analysis approaches exist and how does EDA differ from these other approaches? Three popular data analysis approaches are:
+
+- Classical
+- Exploratory (EDA)
+- Bayesian
+
+#### Paradigms for Analysis Techniques	
+These three approaches are similar in that they all start with a general science/engineering problem and all yield science/engineering conclusions. The difference is the sequence and focus of the intermediate steps.
+
+- For classical analysis, the sequence is
+  Problem => Data => Model => Analysis => Conclusions
+- For EDA, the sequence is
+  Problem => Data => Analysis => Model => Conclusions
+- For Bayesian, the sequence is
+  Problem => Data => Model => Prior Distribution => Analysis => Conclusions
+
+#### Method of dealing with underlying model for the data distinguishes the 3 approaches	
+Thus for classical analysis, the data collection is followed by the imposition of a model (normality, linearity, etc.) and the analysis, estimation, and testing that follows are focused on the parameters of that model. For EDA, the data collection is not followed by a model imposition; rather it is followed immediately by analysis with a goal of inferring what model would be appropriate. Finally, for a Bayesian analysis, the analyst attempts to incorporate scientific/engineering knowledge/expertise into the analysis by imposing a data-independent distribution on the parameters of the selected model; the analysis thus consists of formally combining both the prior distribution on the parameters and the collected data to jointly make inferences and/or test assumptions about the model parameters.
+In the real world, data analysts freely mix elements of all of the above three approaches (and other approaches). The above distinctions were made to emphasize the major differences among the three approaches.
+
+#### Further discussion of the distinction between the classical and EDA approaches	
+Focusing on EDA versus classical, these two approaches differ as follows:
+
+Approacches|Classicial                      | EDA
+-----------|--------------------------------|--------------------------------
+Models     |The classical approach imposes models (both deterministic and probabilistic) on the data. Deterministic models include, for example, regression models and analysis of variance (ANOVA) models. The most common probabilistic model assumes that the errors about the deterministic model are normally distributed--this assumption affects the validity of the ANOVA F tests.|The Exploratory Data Analysis approach does not impose deterministic or probabilistic models on the data. On the contrary, the EDA approach allows the data to suggest admissible models that best fit the data.
+Focus      |The two approaches differ substantially in focus. For classical analysis, the focus is on the model--estimating parameters of the model and generating predicted values from the model.|For exploratory data analysis, the focus is on the data--its structure, outliers, and models suggested by the data.
+Techniques |Classical techniques are generally quantitative in nature. They include ANOVA, t tests, chi-squared tests, and F tests.|Exploratory	EDA techniques are generally graphical. They include scatter plots, character plots, box plots, histograms, bihistograms, probability plots, residual plots, and mean plots.
+Rigor    |Classical techniques serve as the probabilistic foundation of science and engineering; the most important characteristic of classical techniques is that they are rigorous, formal, and "objective".|EDA techniques do not share in that rigor or formality. EDA techniques make up for that lack of rigor by being very suggestive, indicative, and insightful about what the appropriate model should be. <br/>EDA techniques are subjective and depend on interpretation which may differ from analyst to analyst, although experienced analysts commonly arrive at identical conclusions.
+Data Treatment|Classical estimation techniques have the characteristic of taking all of the data and mapping the data into a few numbers ("estimates"). This is both a virtue and a vice. The virtue is that these few numbers focus on important characteristics (location, variation, etc.) of the population. The vice is that concentrating on these few characteristics can filter out other characteristics (skewness, tail length, autocorrelation, etc.) of the same population. In this sense there is a loss of information due to this "filtering" process.|The EDA approach, on the other hand, often makes use of (and shows) all of the available data. In this sense there is no corresponding loss of information.
+Assumptions|The "good news" of the classical approach is that tests based on classical techniques are usually very sensitive--that is, if a true shift in location, say, has occurred, such tests frequently have the power to detect such a shift and to conclude that such a shift is "statistically significant". The "bad news" is that classical tests depend on underlying assumptions (e.g., normality), and hence the validity of the test conclusions becomes dependent on the validity of the underlying assumptions. Worse yet, the exact underlying assumptions may be unknown to the analyst, or if known, untested. Thus the validity of the scientific conclusions becomes intrinsically linked to the validity of the underlying assumptions. In practice, if such assumptions are unknown or untested, the validity of the scientific conclusions becomes suspect.|Many EDA techniques make little or no assumptions--they present and show the data--all of the data--as is, with fewer encumbering assumptions.
+
+### EDA vs. Summary
+How Does Exploratory Data Analysis Differ from Summary Analysis?
+
+#### Summary	
+A summary analysis is simply a numeric reduction of a historical data set. It is quite passive. Its focus is in the past. Quite commonly, its purpose is to simply arrive at a few key statistics (for example, mean and standard deviation) which may then either replace the data set or be added to the data set in the form of a summary table.
+
+#### Exploratory	
+In contrast, EDA has as its broadest goal the desire to gain insight into the engineering/scientific process behind the data. Whereas summary statistics are passive and historical, EDA is active and futuristic. In an attempt to "understand" the process and improve it in the future, EDA uses the data as a "window" to peer into the heart of the process that generated the data. There is an archival role in the research and manufacturing world for summary statistics, but there is an enormously larger role for the EDA approach.
+
+### What are the EDA Goals?
+
+#### Primary and Secondary Goals	
+The primary goal of EDA is to maximize the analyst's insight into a data set and into the underlying structure of a data set, while providing all of the specific items that an analyst would want to extract from a data set, such as:
+
+- a good-fitting, parsimonious model
+- a list of outliers
+- a sense of robustness of conclusions
+- estimates for parameters
+- uncertainties for those estimates
+- a ranked list of important factors
+- conclusions as to whether individual factors are statistically significant
+- optimal settings
+
+#### Insight into the Data	
+Insight implies detecting and uncovering underlying structure in the data. Such underlying structure may not be encapsulated in the list of items above; such items serve as the specific targets of an analysis, but the real insight and "feel" for a data set comes as the analyst judiciously probes and explores the various subtleties of the data. The "feel" for the data comes almost exclusively from the application of various graphical techniques, the collection of which serves as the window into the essence of the data. Graphics are irreplaceable--there are no quantitative analogues that will give the same insight as well-chosen graphics.
+To get a "feel" for the data, it is not enough for the analyst to know what is in the data; the analyst also must know what is not in the data, and the only way to do that is to draw on our own human pattern-recognition and comparative abilities in the context of a series of judicious graphical techniques applied to the data.
+
+### The Role of Graphics
+
+#### Quantitative/Graphical	
+Statistics and data analysis procedures can broadly be split into two parts:
+
+- quantitative
+- graphical
+
+##### Quantitative	
+Quantitative techniques are the set of statistical procedures that yield numeric or tabular output. Examples of quantitative techniques include:
+
+- hypothesis testing
+- analysis of variance
+- point estimates and confidence intervals
+- least squares regression
+These and similar techniques are all valuable and are mainstream in terms of classical analysis.
+Graphical	On the other hand, there is a large collection of statistical tools that we generally refer to as graphical techniques. These include:
+
+- scatter plots
+- histograms
+- probability plots
+- residual plots
+- box plots
+- block plots
+
+#### EDA Approach Relies Heavily on Graphical Techniques	
+The EDA approach relies heavily on these and similar graphical techniques. Graphical procedures are not just tools that we could use in an EDA context, they are tools that we must use. Such graphical tools are the shortest path to gaining insight into a data set in terms of
+
+- testing assumptions
+- model selection
+- model validation
+- estimator selection
+- relationship identification
+- factor effect determination
+- outlier detection
+
+If one is not using statistical graphics, then one is forfeiting insight into one or more aspects of the underlying structure of the data.
+
+### An EDA/Graphics Example
+
+#### Anscombe Example	
+A simple, classic (Anscombe) example of the central role that graphics play in terms of providing insight into a data set starts with the following data set:
+Data	
+  X              Y
+10.00           8.04
+ 8.00           6.95
+13.00           7.58
+ 9.00           8.81
+11.00           8.33
+14.00           9.96
+ 6.00           7.24
+ 4.00           4.26
+12.00          10.84
+ 7.00           4.82
+ 5.00           5.68
+```{r}
+print(anscombe[c("x1","y1")])
+```
+
+#### Summary Statistics	
+If the goal of the analysis is to compute summary statistics plus determine the best linear fit for Y as a function of X, the results might be given as:
+> N = 11
+> Mean of X = 9.0
+> Mean of Y = 7.5
+> Intercept = 3
+> Slope = 0.5
+> Residual standard deviation = 1.237
+> Correlation = 0.816
+
+```{r}
+print(skimr::skim(anscombe[c("x1", "y1")]))
+print(summary(lm(y1~x1, data = anscombe)))
+```
+The above quantitative analysis, although valuable, gives us only limited insight into the data.
+
+####Scatter Plot	
+
+n contrast, the following simple scatter plot of the data
+
+
+```{r}
+ggplot(anscombe, aes(x1, y1)) + geom_point() + geom_smooth(method = "lm")
+```
+
+A scatter plot of the Anscombe data suggests the following:
+
+- The data set "behaves like" a linear curve with some scatter;
+- there is no justification for a more complicated model (e.g., quadratic);
+- there are no outliers;
+- the vertical spread of the data appears to be of equal height irrespective of the X-value; this indicates that the data are equally-precise throughout and so a "regular" (that is, equi-weighted) fit is appropriate.
+
+#### Three Additional Data Sets	
+This kind of characterization for the data serves as the core for getting insight/feel for the data. Such insight/feel does not come from the quantitative statistics; on the contrary, calculations of quantitative statistics such as intercept and slope should be subsequent to the characterization and will make sense only if the characterization is true. To illustrate the loss of information that results when the graphics insight step is skipped, consider the following three data sets [Anscombe data sets 2, 3, and 4]:
+ X2     Y2       X3     Y3       X4     Y4
+10.00   9.14    10.00   7.46     8.00   6.58
+ 8.00   8.14     8.00   6.77     8.00   5.76
+13.00   8.74    13.00  12.74     8.00   7.71
+ 9.00   8.77     9.00   7.11     8.00   8.84
+11.00   9.26    11.00   7.81     8.00   8.47
+14.00   8.10    14.00   8.84     8.00   7.04
+ 6.00   6.13     6.00   6.08     8.00   5.25
+ 4.00   3.10     4.00   5.39    19.00  12.50
+12.00   9.13    12.00   8.15     8.00   5.56
+ 7.00   7.26     7.00   6.42     8.00   7.91
+ 5.00   4.74     5.00   5.73     8.00   6.89
+ 
+```{r}
+print(skimr::skim(anscombe[c("x2", "y2", "x3", "y3", "x4", "y4")]))
+print(summary(lm(y1~x1, data = anscombe)))
+
+print(summary(lm(y1~x1, data = anscombe)))
+
+print(summary(lm(y1~x1, data = anscombe)))
+
+```
+ 
+
+Quantitative Statistics for Data Set 2	A quantitative analysis on data set 2 yields
+
+>- N = 11
+- Mean of X = 9.0
+- Mean of Y = 7.5
+- Intercept = 3
+- Slope = 0.5
+- Residual standard deviation = 1.237
+- Correlation = 0.816
+>
+
+which is identical to the analysis for data set 1. One might naively assume that the two data sets are "equivalent" since that is what the statistics tell us; but what do the statistics not tell us?
+Quantitative Statistics for Data Sets 3 and 4	Remarkably, a quantitative analysis on data sets 3 and 4 also yields
+
+> - N = 11
+- Mean of X = 9.0
+- Mean of Y = 7.5
+- Intercept = 3
+- Slope = 0.5
+- Residual standard deviation = 1.236
+- Correlation = 0.816 (0.817 for data set 4)
+>
+
+which implies that in some quantitative sense, all four of the data sets are "equivalent". In fact, the four data sets are far from "equivalent" and a scatter plot of each data set, which would be step 1 of any EDA approach, would tell us that immediately.
+
+#### Scatter Plots	
+4 scatter plots that exhibit different characteristcs
+```{r}
+# add scatter plots here
+library(gridExtra)
+p1 = ggplot(anscombe, aes(x1, y1)) + geom_point()  +
+  geom_smooth(method='lm') + xlim(4,20) + ylim(4,13)
+p2 = ggplot(anscombe, aes(x2, y2)) + geom_point()  +
+  geom_smooth(method='lm') + xlim(4,20) + ylim(4,13)
+p3 = ggplot(anscombe, aes(x3, y3)) + geom_point()  +
+  geom_smooth(method='lm') + xlim(4,20) + ylim(4,13)
+p4 = ggplot(anscombe, aes(x4, y4)) + geom_point()  +
+  geom_smooth(method='lm')+ xlim(4,20) + ylim(4,13)
+ 
+ 
+gridExtra::grid.arrange(p1, p2, p3, p4, ncol = 2)
+```
+
+Interpretation of Scatter Plots	Conclusions from the scatter plots are:
+
+- data set 1 is clearly linear with some scatter.
+- data set 2 is clearly quadratic.
+- data set 3 clearly has an outlier.
+- data set 4 is obviously the victim of a poor experimental design with a single point far removed from the bulk of the data "wagging the dog".
+
+Importance of Exploratory Analysis	These points are exactly the substance that provide and define "insight" and "feel" for a data set. They are the goals and the fruits of an open exploratory data analysis (EDA) approach to the data. Quantitative statistics are not wrong per se, but they are incomplete. They are incomplete because they are numeric summaries which in the summarization operation do a good job of focusing on a particular aspect of the data (e.g., location, intercept, slope, degree of relatedness, etc.) by judiciously reducing the data to a few numbers. Doing so also filters the data, necessarily omitting and screening out other sometimes crucial information in the focusing operation. Quantitative statistics focus but also filter; and filtering is exactly what makes the quantitative approach incomplete at best and misleading at worst.
+The estimated intercepts (= 3) and slopes (= 0.5) for data sets 2, 3, and 4 are misleading because the estimation is done in the context of an assumed linear model and that linearity assumption is the fatal flaw in this analysis.
+
+The EDA approach of deliberately postponing the model selection until further along in the analysis has many rewards, not the least of which is the ultimate convergence to a much-improved model and the formulation of valid and supportable scientific and engineering conclusions.
+
+### General Problem Categories
+The following table is a convenient way to classify EDA problems.
+
+#### Univariate and Control
+
+Classification|Univariate                               |Control
+--------------|-----------------------------------------|-----------------------------------------
+Data          |A single column of numbers, Y. |A single column of numbers, Y.
+Model         |y = constant + error           |y = constant + error
+Output        |- A number (the estimated constant in the model).<br/>- An estimate of uncertainty for the constant.<br/>- An estimate of the distribution for the error.  |A "yes" or "no" to the question "Is the system out of control?"
+Techniques    |4-Plot<br/>Probability Plot<br/>PPCC Plot |Control Charts
+
+#### Comparative and Screening
+
+Classification|Comparative                              |Screening
+--------------|-----------------------------------------|-----------------------------------------
+Data          |A single response variable and k independent variables (Y, X~1~, X~2~, ... , X~k~), primary focus is on one (the primary factor) of these independent variables. |A single response variable and k independent variables (Y, X~1~, X~2~, ... , X~k~).
+Model         |y = f(x~1~, x~2~, ..., x~k~) + error |y = f(x~1~, x~2~, ..., x~k~) + error
+Output        |A "yes" or "no" to the question "Is the primary factor significant?".|A ranked list (from most important to least important) of factors.<br/>Best settings for the factors.<br/>A good model/prediction equation relating Y to the factors.
+Techniques    |Block Plot<br/>Scatter Plot<br/>Box Plot|Block Plot<br/>Probability Plot<br/>Bihistogram
+
+#### Optimization and Regression
+
+Classification|Optimizatio                              |Regression
+--------------|-----------------------------------------|-----------------------------------------
+Data          |A single response variable and k independent variables (Y, X~1~, X~2~, ... , X~k~). |A single response variable and k independent variables (Y, X~1~, X~2~, ... , X~k~)<br/>The independent variables can be continuous.
+Model         |y = f(x~1~, x~2~, ..., x~k~) + error |y = f(x~1~, x~2~, ..., x~k~) + error
+Output        |Best settings for the factor variables.|A good model/prediction equation relating Y to the factors.
+Techniques    |Block Plot<br/>Least Squares Fitting<br/>Contour Plot|Least Squares Fitting<br/>Scatter Plot<br/>6-Plot
+
+#### Time Series and Multivariate
+Classification|Optimizatio                              |Regression
+--------------|-----------------------------------------|-----------------------------------------
+Data          |A column of time dependent numbers, Y. In addition, time is an indpendent variable. The time variable can be either explicit or implied. If the data are not equi-spaced, the time variable should be explicitly provided.|k factor variables (X1, X2, ... , Xk).
+Model         |y~t~ = f(t) + error<br/>The model can be either a time domain based or frequency domain based.|The model is not explicit.
+Output        |A good model/prediction equation relating Y to previous values of Y.|Identify underlying correlation structure in the data.
+Techniques    |Autocorrelation Plot<br/>Spectrum<br/>Complex Demodulation Amplitude Plot<br/>Complex Demodulation Phase Plot<br>ARIMA Models|Star Plot<br/>Scatter Plot Matrix<br/>Conditioning Plot<br/>Profile Plot<br/>Principal Components<br/>Clustering<br/>Discrimination/Classification
+
+## EDA Assumptions
+
+### Summary	
+
+The gamut of scientific and engineering experimentation is virtually limitless. In this sea of diversity is there any common basis that allows the analyst to systematically and validly arrive at supportable, repeatable research conclusions?
+Fortunately, there is such a basis and it is rooted in the fact that every measurement process, however complicated, has certain underlying assumptions. This section deals with what those assumptions are, why they are important, how to go about testing them, and what the consequences are if the assumptions do not hold.
+
+### Table of Contents for Section 2	
+
+- Underlying Assumptions
+- Importance
+- Testing Assumptions
+- Importance of Plots
+- Consequences
+
+### Underlying Assumptions
+#### Assumptions Underlying a Measurement Process	
+There are four assumptions that typically underlie all measurement processes; namely, that the data from the process at hand "behave like":
+
+- random drawings;
+- from a fixed distribution;
+- with the distribution having fixed location; and
+- with the distribution having fixed variation.
+
+#### Univariate or Single Response Variable	
+The "fixed location" referred to in item 3 above differs for different problem types. The simplest problem type is univariate; that is, a single variable. For the univariate problem, the general model
+> response = deterministic component + random component
+becomes
+> response = constant + error
+
+#### Assumptions for Univariate Model	
+For this case, the "fixed location" is simply the unknown constant. We can thus imagine the process at hand to be operating under constant conditions that produce a single column of data with the properties that
+
+- the data are uncorrelated with one another;
+- the random component has a fixed distribution;
+- the deterministic component consists of only a constant; and
+- the random component has fixed variation.
+
+#### Extrapolation to a Function of Many Variables	
+The universal power and importance of the univariate model is that it can easily be extended to the more general case where the deterministic component is not just a constant, but is in fact a function of many variables, and the engineering objective is to characterize and model the function.
+
+#### Residuals Will Behave According to Univariate Assumptions	
+The key point is that regardless of how many factors there are, and regardless of how complicated the function is, if the engineer succeeds in choosing a good model, then the differences (residuals) between the raw response data and the predicted values from the fitted model should themselves behave like a univariate process. Furthermore, the residuals from this univariate process fit will behave like:
+random drawings;
+from a fixed distribution;
+with fixed location (namely, 0 in this case); and
+with fixed variation.
+Validation of Model	Thus if the residuals from the fitted model do in fact behave like the ideal, then testing of underlying assumptions becomes a tool for the validation and quality of fit of the chosen model. On the other hand, if the residuals from the chosen fitted model violate one or more of the above univariate assumptions, then the chosen fitted model is inadequate and an opportunity exists for arriving at an improved model.
+
+### Importance
+#### Predictability and Statistical Control	
+Predictability is an all-important goal in science and engineering. If the four underlying assumptions hold, then we have achieved probabilistic predictability--the ability to make probability statements not only about the process in the past, but also about the process in the future. In short, such processes are said to be "in statistical control".
+
+#### Validity of Engineering 
+Conclusions	Moreover, if the four assumptions are valid, then the process is amenable to the generation of valid scientific and engineering conclusions. If the four assumptions are not valid, then the process is drifting (with respect to location, variation, or distribution), unpredictable, and out of control. A simple characterization of such processes by a location estimate, a variation estimate, or a distribution "estimate" inevitably leads to engineering conclusions that are not valid, are not supportable (scientifically or legally), and which are not repeatable in the laboratory.
+
+### Techniques for Testing Assumptions
+#### Testing Underlying Assumptions Helps Assure the Validity of Scientific and Engineering Conclusions	
+Because the validity of the final scientific/engineering conclusions is inextricably linked to the validity of the underlying univariate assumptions, it naturally follows that there is a real necessity that each and every one of the above four assumptions be routinely tested.
+
+Four Techniques to Test Underlying Assumptions	
+The following EDA techniques are simple, efficient, and powerful for the routine testing of underlying assumptions:
+
+1. run sequence plot (Yi versus i)
+1. lag plot (Yi versus Yi-1)
+1. histogram (counts versus subgroups of Y)
+1. normal probability plot (ordered Y versus theoretical ordered Y)
+
+#### Plot on a Single Page for a Quick Characterization of the Data	
+The four EDA plots can be juxtaposed for a quick look at the characteristics of the data. The plots below are ordered as follows:
+
+- Run sequence plot - upper left
+- Lag plot - upper right
+- Histogram - lower left
+- Normal probability plot - lower right
+
+#### Sample Plot: Assumptions Hold	
+A 4-Plot which shows fixed location, fixed variation, fixed normal distribution, and no outliers
+```{r}
+#insert 4-plot
+library(tidyverse)
+four_plot <- function (y){
+  # take in a numeric verctor for univariate analysis
+  if(! is.numeric(y)) stop("Requires a numeric vector")
+  da <- tibble( idx = 1:length(y), y )
+  p1 = ggplot(da, aes(x=idx, y=y)) + geom_line() # run sequenc
+  p2 = ggplot(da, aes(x = y, y = c(tail(y, -1),0))) + geom_point() # lag plot
+  p3 = ggplot(da, aes(x=y)) + geom_histogram() #histogram
+  p4 <- ggplot(da, aes(sample=y)) + geom_qq() # qqplot
+  gridExtra::grid.arrange(p1, p2, p3, p4, ncol = 2)
+}
+
+four_plot(rnorm(500))
+
+```
+This 4-plot of 500 normal random numbers reveals a process that has fixed location, fixed variation, is random, apparently has a fixed approximately normal distribution, and has no outliers.
+
+#### Sample Plot: Assumptions Do Not Hold	
+If one or more of the four underlying assumptions do not hold, then it will show up in the various plots as demonstrated in the following example.
+
+```{r}
+LEW <- read_csv("~/Dropbox/github/R_Codes_and_Data/Rdata/LEW.DAT", 
+     col_names = FALSE, col_types = cols(X1 = col_double()), skip = 25)
+names(LEW) <- c("deflection")
+four_plot(LEW$deflection)
+
+```
+
+This 4-plot reveals a process that has fixed location, fixed variation, is non-random (oscillatory), has a non-normal, U-shaped distribution, and has several outliers.
+
+### Interpretation of 4-Plot
+#### Interpretation of EDA Plots: Flat and Equi-Banded, Random, Bell-Shaped, and Linear	
+The four EDA plots discussed on the previous page are used to test the underlying assumptions:
+
+**- Fixed Location:**
+If the fixed location assumption holds, then the run sequence plot will be flat and non-drifting.
+
+**- Fixed Variation:**
+If the fixed variation assumption holds, then the vertical spread in the run sequence plot will be the approximately the same over the entire horizontal axis.
+
+**- Randomness:**
+If the randomness assumption holds, then the lag plot will be structureless and random.
+
+**- Fixed Distribution:**
+If the fixed distribution assumption holds, in particular if the fixed normal distribution holds, then
+
+1. the histogram will be bell-shaped, and
+1. the normal probability plot will be linear.
+
+#### Plots Utilized to Test the Assumptions	
+Conversely, the underlying assumptions are tested using the EDA plots:
+
+**- Run Sequence Plot:**
+If the run sequence plot is flat and non-drifting, the fixed-location assumption holds. If the run sequence plot has a vertical spread that is about the same over the entire plot, then the fixed-variation assumption holds.
+
+**- Lag Plot:**
+If the lag plot is structureless, then the randomness assumption holds.
+
+**- Histogram:**
+If the histogram is bell-shaped, the underlying distribution is symmetric and perhaps approximately normal.
+
+**- Normal Probability Plot:**
+If the normal probability plot is linear, the underlying distribution is approximately normal.
+
+If all four of the assumptions hold, then the process is said definitionally to be "in statistical control".
+
+-----------
+
+
+You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+
+Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+
+```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
+par(mar = c(4, 4, .1, .1))
+plot(pressure, type = 'b', pch = 19)
+```
+
+Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(iris, 20), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
+```
+
+You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].

@@ -1,0 +1,15 @@
+# Measurement Process Characterization
+## Characterization
+The primary goal of this section is to lay the groundwork for understanding the measurement process in terms of the errors that affect the process.
+
+What are the issues for characterization?
+
+- Purpose
+- Reference base
+- Bias and Accuracy
+- Variability
+- What is a check standard?
+
+Assumptions
+- Data collection
+- Analysis
